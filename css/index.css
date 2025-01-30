@@ -484,6 +484,12 @@ body{
     font-size: 18px;
     font-weight: 200;
 }
+.about-first-line-two{
+    font-size: 35px;
+    opacity: 1;
+    margin-bottom: 10px;
+    display: block;
+}
 .about-main{
     display: flex;
     align-items: center;
