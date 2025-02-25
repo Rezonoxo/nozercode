@@ -298,6 +298,20 @@ body{
         z-index: 0;
     }
 }
+.linktree-przycisk{
+    background-color: rgb(104, 104, 104);
+    border:3px solid white;
+    border-radius: 50%;
+    color: white;
+    width:  41px;
+    opacity: .6;
+    transition: all .4s ease;
+
+}
+.linktree-przycisk:hover{
+    opacity: 1;
+    transform: scale(1.1);
+}
 .social-media-links{
     height: 100vh;
     position: absolute;
