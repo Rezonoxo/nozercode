@@ -1593,11 +1593,11 @@ For devices with smaller width like mobile phone
             }
             .portfolio-image img{
                 height: 300px;
-                width: 100%;
+                width: 300px;
             }
             .portfolio-image{
                 height: 300px;
-                width: 90%;
+                width: 300px;
             }
             #navigation-bar img{
                 height: 80px;
@@ -2064,12 +2064,12 @@ for tabs and large phones
             }
             .portfolio-image img{
                 height: 380px;
-                width: 100%;
+                width: 380px;
                 position: relative;
             }
             .portfolio-image{
                 height: 380px;
-                width: 70%;
+                width: 380px;
             }
             #navigation-bar img{
                 height: 80px;
@@ -2296,7 +2296,7 @@ for tabs and large phones
 
     .portfolio-image img{
         height: 500px;
-        width: 100%;
+        width: 500px;
         position: relative;
     }
     .portfolio-image{
