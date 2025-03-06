@@ -2421,7 +2421,7 @@ for tabs and large phones
         transition: all .65s ease;
     }
     .blog-text{
-      height: 80%;
+      height: 115%;
       width: 100%;
       text-align: center;
       vertical-align: center;
@@ -2442,7 +2442,7 @@ for tabs and large phones
         opacity: .9;
         font-weight: 400;
         height: 80%;
-        padding: 30px;
+        padding: 20px;
         letter-spacing: 1px;
       }
     .blogs:hover .img{
