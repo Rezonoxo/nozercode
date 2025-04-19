@@ -20,27 +20,6 @@ window.addEventListener('load', () => {
     }, 500);
 });
 
-// Custom Cursor initialization
-const cursor = document.querySelector('.cursor');
-if (cursor) {
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
-
-    // Cursor effects on interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .project-card, .service-card, .social-link, .theme-toggle');
-    interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(2)';
-        });
-
-        element.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
-    });
-}
-
 // Theme Toggle with localStorage
 const themeCheckbox = document.querySelector('.theme-checkbox');
 
