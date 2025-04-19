@@ -224,6 +224,12 @@
         width: 8px;
         height: 8px;
     }
+    .flare-left{
+        display: none;
+    }
+    .flare-right{
+        display: none;
+    }
 }
 
 
@@ -898,7 +904,6 @@ h2 {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0.5rem;
     transition: var(--transition);
 }
 
@@ -906,6 +911,7 @@ h2 {
     display: block;
     width: 24px;
     height: 24px;
+    padding-right: 23px;
     position: relative;
 }
 
