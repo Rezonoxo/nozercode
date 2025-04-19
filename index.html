@@ -1,620 +1,155 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nozer - Osobista Strona Portfolio" />
-	<meta name="keywords" content="Portfolio, twórca, design, about me, nozer, nozercode, rezonoxo, website, web design, content creator, grafiki" />
-	<meta name="author" content="Nozer, Wiktor Konopka" />
-    <title>Nozercode - Strona Główna</title>
-  <!--favicon-img--> 
-   <link rel="icon" type="image/png" href="images/logonzr.png">
-   <!--favicon-img-->
-   <!--main css file should not be removed -->
-    <link rel="stylesheet" href="css/index.css">
-    <!--main css file-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "NSkcvasxI0gTrUnEk",
-      });
-   })();
-</script>
+    <title>Digital Creator Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-    <!--contains all the div-->
-    <div id="all">
-    <!--mouse  follower-->
-        <div class="cursor"></div>
-    <!--mouse  follower-->
-    <!--loader-->
-        <div id="loader">
-            <span class="color">Nozer</span>Code 
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading...</div>
         </div>
-    <!--loader-end-->
-    <!--link-screen-->
-        <div id="breaker">
-        </div>
-        <div id="breaker-two">
-        </div>
-    <!--link-screen-->
-        <!--Main-Section-->
-        <!--Navigator-fullscreen-->
-        <div id="navigation-content">
-            <div class="logo">
-                <img src="images/logonzr.png" alt="logo">
-            </div>
-            <div class="navigation-close">
-                <span class="close-first"></span>
-                <span class="close-second"></span>
-            </div>
-            <div class="navigation-links">
-                <a href="#" data-text="START" id="home-link" >START</a>
-                <a href="#" data-text="O⠀MNIE" id="about-link" >O MNIE</a>
-                <a href="#" data-text="FAQ" id="blog-link" >FAQ</a>
-                <a href="#" data-text="PORTFOLIO" id="portfolio-link" >PORTFOLIO</a>
-                <a href="#" data-text="CONTACT" id="contact-link" >KONTAKT</a>
-            </div>
-        </div>
-        <!--Navigator-Fullscreen END-->
-          <!--Home Page-->
-        <!--Menubar-->
-        <div id="navigation-bar">
-            <img src="images/logonzr.png" alt="logo">
-            <div class="menubar">
-                <span class="first-span"></span>
-                <span class="second-span"></span>
-                <span class="third-span"></span>
-            </div>
-        </div>
-        <!--Menubar End-->
-          <!--Header-->
-        <div id="header">
-            <div id="particles"></div>
-              <!--Social Media Links-->
-            <div class="social-media-links">
-                <a href="https://nozercode.carrd.co/"><img src="images/linktree-icon.png" class="linktree-przycisk" alt="linktree-logo"></a>
-                <a href="https://discord.gg/7nCEvdfCnS"><img src="images/discord-logo.png" class="social-media" alt="discord-logo"></a>
-                <a href="https://github.com/Rezonoxo"><img src="images/github-logo.png" class="social-media" alt="github-logo"></a>
-                <a href="https://www.tiktok.com/@nozercode"><img src="images/tiktok-logo.png" class="social-media" alt="tiktok-logo"></a>
-                <a href="https://patreon.com/Nozercode"><img src="images/patreon-logo.png" class="social-media" alt="patreon-logo"></a>
-                <a href="https://pl.pinterest.com/nozercode/"><img src="images/pinterest-logo.png" class="social-media" alt="pinterest-logo"></a>
-            </div>
-            <!--Social Media Links end-->
-
-            <div class="header-content">
-                <div class="header-content-box">
-                <div class="firstline"><span class="color">Nozer</span>Code</div>
-                <div class="secondline">
-                Czyli
-            <span class="txt-rotate color" data-period="1200"data-rotate='[ " Grafik.", " Twórca.", " Web Developer.", " Montażysta."]'></span>
-            <span class="slash">|</span>
-        </div>          
-        <div class="contact">
-                <a href="#"><img src="images/cv-icon.png" alt="cv-icon" class="cvicon"></a>
-                <a href="https://www.youtube.com/@nozercode"><img src="images/youtube-logo.png" alt="youtube-icon" class="youtubeicon"></a>
-                    </div>    
-            </div>
-            </div>
-            <!--header image-->
-            <div class="header-image">
-            <img src="images/men.png" alt="logo">
-            </div>
-            <!--header image end-->
-        </div>
-           <!--Header End-->
-        <!--HomePage End-->
-        <!--Main-Section End-->
-        <!--about-->
-        <div id="about">
-            <div class="color-changer">
-            <div class="color-panel">
-                <img src="images/gear.png" alt="">
-            </div>
-            <div class="color-selector">
-                <div class="heading">Zmień Motyw</div>
-                <div class="colors">
-                    <ul >
-                    <li>
-                        <a href="#0" class="color-red " title="color-red"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-purple" title="color-purple"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-malt" title="color-malt"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-green" title="color-green"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-blue" title="color-blue"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-orange" title="color-orange"></a>
-                    </li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-            <!--about content-->
-            <div id="about-content">
-                <div class="about-header">
-                    O <span class="color">mnie</span>
-                    <span class ="header-caption">Poznaj <span class="color"> Nozera.</span></span>
-                </div>
-                <div class="about-main">
-            <div class="about-first-paragraph wow">
-            <!--about description-->
-               <span class="about-first-line">
-                    Hej, jestem 
-                    <span class="color">Nozer</span>
-                     i chciałbym żebyś mnie poznał. </span>
-                     <br>
-               <span class="about-second-line"> Mam na imię Wiktor, na codzień jestem uczniem technikum informatycznego. Poza szkołą rozwijam się między innymi w obszarze informatycznym.<br><br> Tworzę strony posługując się: HTML, CSS oraz JS. Oprócz stron internetowych interesuje mnie też grafika. Projektuje i edytuje swoje prace w różnych programach graficznych.<br><br> Następnym zajęciem/zainteresowaniem jest amatorska fotografia.<br><br>Zdjęcia znajdziesz na pinterescie.
-                w wolnym czasie, zajmuję się również montażem filmów. Tworzę filmy na platformie YouTube oraz Tiktok.</span>
-               </span>
-               <div class="cv">
-                <a href="#"><button>Pobierz <span class="colors">CV</span></button></a>
-            </div>
-            </div>
-            <!--about picture-->
-            <div class="about-img">
-                <img src="images/about.jpg" alt="Your Image">
-            </div>
-            </div>
-    
-            </div>
-            <!--services start-->
-            <div id="services">
-                <div class="color-changer">
-                    <div class="color-panel">
-                        <img src="images/gear.png" alt="">
-                    </div>
-                    <div class="color-selector">
-                        <div class="heading">Zmień motyw</div>
-                        <div class="colors">
-                            <ul >
-                            <li>
-                                <a href="#0" class="color-red " title="color-red"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-purple" title="color-purple"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-malt" title="color-malt"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-green" title="color-green"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-blue" title="color-blue"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-orange" title="color-orange"></a>
-                            </li>
-                            </ul>
-                        </div>
-                    </div>
-                    </div>
-            <!--services header-->
-                    <div class="services-heading wow">
-                        <span class="color">Moje</span> Specjalności
-                    </div>
-            <!--services header end-->
-            <!--services content-->
-                    <div class="services-content">
-                           <div class="service-one service wow">
-                               <div class="service-img">
-                               <img src="images/coding.png" alt="service-one">
-                               </div>
-                               <div class="service-description">
-                                <h2>Projekty Stron</h2>
-                                <p>Projektowanie i realizowanie stron internetowych korzystając z HTML CSS oraz JS. Ale równierz korzystanie z silników takich jak Wordpress, MyBB czy Wix.</p>
-                               </div>
-                           </div>
-                           <div class="service-two service wow">
-                               <div class="service-img">
-                               <img src="images/photo-icon.png" alt="service-two">
-                               </div>
-                               <div class="service-description">
-                                <h2>Fotografia</h2>
-                                <p>Wykonywanie zdjęć i ogólna edycja fotografii.</p>
-                               </div>
-                           </div>
-                           <div class="service-three service wow">
-                            <div class="service-img">
-                               <img src="images/bulb.png" alt="service-three">
-                            </div>
-                            <div class="service-description">
-                                <h2>Grafika</h2>
-                                <p>Projektowanie różnego rodzaju grafik, reklam, miniatur, logotypów, i innych prac graficznych.</p>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <!--services content end-->
-            <!--services end-->
-            <!--<div id="skills">
-                <div class="skills-header">
-                     Moje <span class="color"> Cele</span>
-                </div>
-                <div class="skills-content " style="text-align: center;">
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        HTML/CSS
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="html-progress wow">95%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                      Javascript
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="js-progress wow">90%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        Adobe Ps
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="adobe-progress wow">83%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        PHP
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="php-progress wow">87%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        JQuery
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="jquery-progress wow">94%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        SEO
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="seo-progress wow">84%</div>
-                    </div>
-                    </div>
-                </div>
-            </div>-->
-    <!--copyright-section You Can Remove After Downloading-->
-            <div class="footer">
-             <div class="footer-text">
-                @nozercode
-             </div>
-            </div>
-    <!--copyright-section-->
-        </div>
-        <!--about end-->
-        <!--portfolio-->
-        <div id="portfolio">
-            <div class="color-changer">
-                <div class="color-panel">
-                    <img src="images/gear.png" alt="">
-                </div>
-                <div class="color-selector">
-                    <div class="heading">Zmień motyw</div>
-                    <div class="colors">
-                        <ul >
-                        <li>
-                            <a href="#0" class="color-red " title="color-red"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-purple" title="color-purple"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-malt" title="color-malt"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-green" title="color-green"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-blue" title="color-blue"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-orange" title="color-orange"></a>
-                        </li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-            <div class="portfolio-header"> <span class="color"> Moje </span> Portfolio
-            <span class ="header-caption"> zainspiruj się <span class="color"> moimi projektami</span></span></div>
-             <div id="portfolio-content">
-                 <div class="portfolio portfolio-first">
-                     <div class="portfolio-image">
-                        <img src="images/portfolio-first.png" alt="portfolio-first">
-                     </div>
-                     <div class="portfolio-text">
-                         <h2>Ekspert od Minecraft'a</h2>
-                         <p>Jestem pasjonatem Minecrafta z wieloletnim doświadczeniem. Grając w tę grę od najmłodszych lat, miałem okazję zgłębić niemal wszystkie aspekty jej możliwości, poza samą rozgrywką. Specjalizuję się w tworzeniu i zarządzaniu serwerami, administracji, a także tworzeniu tekstur i modpacków. Posiadam zaawansowaną wiedzę na temat shaderów, serwerów, modów oraz innych zasobów Minecrafta, co pozwala mi w pełni wykorzystać potencjał gry.</p>
-                         <div class="button"><a href="https://modrinth.com/user/nozercode/modpacks"><button><span class="index"> Zobacz moje modpacki!<i class="gg-arrow-right"></i></span></button></a></div>
-                     </div>
-                 </div>
-                 <div class="portfolio portfolio-second">
-                    <div class="portfolio-image">
-                        <img src="images/portfolio-second.png" alt="portfolio-second">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>Zarządzanie społecznością Discord</h2>
-                        <p>Jestem użytkownikiem Discord z wieloletnim doświadczeniem. Dotychczas udało mi się prowadzić wiele serwerów społęczności większe jak i te mniejsze. Potrafię rozwijać serwery i dbać o ich aktywność, porządek i dobrą atmosferę. Mam doświadczenie w konfigurowaniu botów i moderacji. W swojej historii doznałem też podstaw tworzenia własnych aplikacji discord.</p>
-                        <div class="button"><a href="https://discord.gg/7nCEvdfCnS"><button><span class="index"> Dołącz do serwera<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div>
-             
-                <div class="portfolio portfolio-third">
-                    <div class="portfolio-image">
-                        <img src="images/portfolio-third.jpg" alt="portfolio-third">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>Portfolio graficzne</h2>
-                        <p>Poznaj moje pełne portfolio graficzne na Behance! Przedstawiam tu swoje autorskie multimedia które wykonałem w przeszłości.</p>
-                        <div class="button"><a href="https://behance.com/nozercode"><button><span class="index"> Sprawdź portfolio!<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div>
-                <div class="portfolio portfolio-fourth">
-                    <div class=" portfolio-image">
-                        <img src="images/portfolio-fourth.png" alt="portfolio-fourth">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>Project Management </h2>
-                        <p>Dotychczas zdarzyło mi się koordynować / zarządzać / nadzorować lub rozwijać ambitne ciekawe projekty wraz z innymi osobami. Posiadam umiejętności zdolne do: kierowania zespołem, podejmowania kluczowych decyzji i komunikacji biznesowych czy rozmów formalnych.</p>
-                    </div>
-                </div>
-                 </div>
-                    <!--copyright-section You Can Remove After Downloading-->
-            <div class="footer">
-                <div class="footer-text">
-                @nozercode
-                </div>
-               </div>
-       <!--copyright-section-->
-             </div>
-        <!--portfolio end-->
-        <!--blog-->
-        <div id="blog">
-            <div class="color-changer">
-                <div class="color-panel">
-                    <img src="images/gear.png" alt="">
-                </div>
-                <div class="color-selector">
-                    <div class="heading">Zmień motyw</div>
-                    <div class="colors">
-                        <ul >
-                        <li>
-                            <a href="#0" class="color-red " title="color-red"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-purple" title="color-purple"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-malt" title="color-malt"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-green" title="color-green"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-blue" title="color-blue"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-orange" title="color-orange"></a>
-                        </li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-        <div class="blog-header"> FAQ</span>
-            <span class ="header-caption"> Pytania i <span class="color"> odpowiedzi.</span></span></div>
-            <div class="blog-content">
-                 <div class="blogs">
-                     <a href="#">
-                     <div class="img">
-                         <img src="images/post-one.jpg" alt="blog-one">
-                        <div class="blog-date">Strona</div>
-                     </div>
-                     <div class="blog-text">
-                         <h3>Po co Ci ta strona?</h3>
-                         <p>Zawsze chciałem mieć swoją stronę osobistą, aby istnieć gdzieś w internecie. 
-                            Interesuje mnie budowa stron – ich wewnętrzna złożoność i jednoczesna prostota dla użytkownika.
-                             Strona to moja wizytówka, miejsce, gdzie gromadzę informacje o sobie.
-                              Nawet bez dużej popularności, jest dla mnie ważnym elementem twórczości, który daje mi satysfakcję.</p>
-                     </div></a>
-                 </div>      
-                 <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-two.jpg" alt="blog-two">
-                        <div class="blog-date">Strona</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Czemu strona jest formalna </h3>
-                        <p>Tworząc stronę starałem się aby była zrobiona
-                             bardziej formalnie i oficjalnie, ale bez obaw 
-                             na codzień taki nie jestem xD ( taki formalny ) 
-                             raczej można ze mną porozmawiać jak z człowiekiem także spoko.</p>
-                    </div></a>
-                </div>      
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-three.jpg" alt="blog-three">
-                        <div class="blog-date">Nozercode</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Co z serwerem minecraft</h3>
-                        <p>Plany cały czas są aktualne póki jest zainteresowanie na serwer. Ale zwolniłem z planem tworzenia oficjalnego serwera minecraft
-                            nozercode ponieważ martwię się o rentowność projektu ( nie chcę wydawać sporo kasy na coś co może nie wypalić ) pzoa tym wolę się w tym czasie podszkolić
-                            tak aby gdy już serwer powstanie był dopięty na ostatni guzik!
-                        </p>
-                    </div></a>
-                </div>
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-four.jpg" alt="blog-four">
-                        <div class="blog-date">6 Jul,19</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Web Development</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, veniam ratione quam vitae,
-                             quibusdam explicabo rem debitis velit ipsa repellat, impedit nulla fuga? Amet corporis praesentium quae.
-                              Sed, quibusdam necessitatibus.</p>
-                    </div></a>
-                </div>  
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-five.jpg" alt="blog-five">
-                        <div class="blog-date">1 Jun,19</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Work From Home</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga sunt eum necessitatibus rem 
-                            dignissimos nulla mollitia cumque, provident officiis non vitae? Animi aut doloremque illum, soluta hic minus 
-                            sint explicabo..</p>
-                    </div></a>
-                </div>  
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-six.jpg" alt="blog-six">
-                        <div class="blog-date">28 Feb,19</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Business Trip</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo tempora dolorum fuga ratione, unde, 
-                            ex quaerat iste numquam nemo nihil nobis rem sint quia recusandae dignissimos quos ut rerum nam.</p>
-                    </div></a>
-                </div>        
-            </div>
-               <div class="footer">
-                <div class="footer-text">
-                    @nozercode
-                </div>
-               </div>
-       <!--copyright-section-->
-        </div>
-        <!--blog end-->
-        <!--contact-->
-     <div id="contact">
-        <div class="color-changer">
-            <div class="color-panel">
-                <img src="images/gear.png" alt="">
-            </div>
-            <div class="color-selector">
-                <div class="heading">Zmień motyw</div>
-                <div class="colors">
-                    <ul >
-                    <li>
-                        <a href="#0" class="color-red " title="color-red"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-purple" title="color-purple"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-malt" title="color-malt"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-green" title="color-green"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-blue" title="color-blue"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-orange" title="color-orange"></a>
-                    </li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-         <div class="contact-header">Skontaktuj <span class="color"> się</span>
-        <div class="contact-header-caption"> <span class="color"> Napisz</span> do Mnie</div></div>
-        <div class="contact-content">
-            <!--Contact form-->
-             <div class="contact-form">
-                 <div class="form-header">
-                     Napisz do mnie
-                 </div>
-                 <form id="myForm" action="send_email.php" method="post">
-                    <div class="input-line">
-                        <input  id="name" type="text" placeholder="Nazwa / Imię" class="input-name">
-                        <input id="email" type="email" placeholder="Email"  class="input-name">
-                    </div>
-                    <input type="text" id="subject" placeholder="Temat" class="input-subject">
-                    <textarea id ="body" class="input-textarea" placeholder="Wiadomość"></textarea>
-                    <button type="submit" id ="submit" value="send">Wyślij!</button>
-                    <h2 class="form-header">Lub napisz do mnie na discord: rezonoxo</h2>
-                 </form>
-                 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-                 <script>
-                     (function() {
-                         emailjs.init("NSkcvasxI0gTrUnEk"); 
-                     })();
-                 
-                     document.getElementById("myForm").addEventListener("submit", function(event) {
-                         event.preventDefault(); 
-                 
-                         const params = {
-                             name: document.getElementById("name").value,
-                             email: document.getElementById("email").value,
-                             subject: document.getElementById("subject").value,
-                             message: document.getElementById("body").value
-                         };
-                
-                         emailjs.send("service_9c1sr5d", "template_hmv0b66", params)
-                             .then(function(response) {
-                                 alert("Wiadomość wysłana pomyślnie!");
-                                 document.getElementById("myForm").reset();
-                             }, function(error) {
-                                 alert("Błąd podczas wysyłania wiadomości: " + JSON.stringify(error));
-                             });
-                     });
-                 </script>                 
-             </div>
-        </div>
-                    <div class="footer">
-                        <div class="footer-text">
-                            @nozercode
-                        </div>
-                       </div>
-               <!--copyright-section-->
-     </div>
-        <!--contact end-->
     </div>
-    <!--all the divisions-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/index.js"></script>
+    <div class="cursor"></div>
 
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">NozerCode</div>
+            <button class="menu-toggle">
+                <span class="menu-icon"></span>
+            </button>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#services">Services</a>
+                <button class="music-toggle" aria-label="Toggle music">
+                    <i class="fas fa-music"></i>
+                </button>
+                <label class="theme-switch">
+                    <input type="checkbox" class="theme-checkbox">
+                    <span class="theme-slider"></span>
+                </label>
+            </div>
+        </div>
+    </nav>
 
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="main-title">NozerCode</h1>
+            <div class="specializations">
+                <span class="specialization">Web Developer</span>
+                <span class="specialization">Graphic Designer</span>
+                <span class="specialization">Content Creator</span>
+                <span class="specialization">Minecraft Expert</span>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/rezonoxo" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://dsc.gg/nozercode" target="_blank" class="social-link">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="https://youtube.com/@nozercode" target="_blank" class="social-link">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://tiktok.com/@nozercode" target="_blank" class="social-link">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://paypal.me/nozercode" target="_blank" class="social-link">
+                    <i class="fab fa-paypal"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="flare flare-left"></div>
+        <div class="flare flare-right"></div>
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <a href="https://rezonoxo.github.io/Centrum4life/" class="project-card">
+                <div class="project-image"><img src="images/centrum4life.png" alt="Centrum 4life"></div>
+                <div class="project-info">
+                    <h3>Centrum 4life</h3>
+                    <p>Modern unofficcial MTA 4life help center with usefull tools and resources.</p>
+                </div>
+            </a>
+            <a href="https://www.behance.net/nozercode/" class="project-card">
+                <div class="project-image"><img src="images/nozercode-graphics.png" alt="NozerCode Graphics"></div>
+                <div class="project-info">
+                    <h3>NozerCode Graphics</h3>
+                    <p>Portfolio for my design works, photos and resources.</p>
+                </div>
+            </a>
+            <a href="https://rezonoxo.github.io/kasyno/" class="project-card">
+                <div class="project-image"><img src="images/kosierb-casino.png" alt="Kosierb's Casino"></div>
+                <div class="project-info">
+                    <h3>Kosierb's Casino</h3>
+                    <p>Casino Game. Using local storage to save data without spending money.</p>
+                </div>
+            </a>
+            <a href="https://google.com/" class="project-card">
+                <div class="project-image"><img src="images/soon.png" alt="SOON"></div>
+                <div class="project-info">
+                    <h3>SOON</h3>
+                    <p>???</p>
+                </div>
+            </a>
+        </div>
+    </section>
+    
+    
+
+    <div class="section-divider">
+        <div class="divider-content">
+            <div class="divider-line"></div>
+            <div class="divider-dot"></div>
+            <div class="divider-line"></div>
+        </div>
+    </div>
+
+    <section id="services" class="services">
+        <div class="flare flare-left"></div>
+        <div class="flare flare-right"></div>
+        <h2>Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Web Development</h3>
+                <p>Custom modern responsive static pages via HTML CSS JS</p>
+            </div>
+            <div class="service-card">
+                <h3>Graphic Design</h3>
+                <p>Professional design services, including advertising graphics, Youtube thumbnails, two letter logos, labels.</p>
+            </div>
+            <div class="service-card">
+                <h3>Content Creation</h3>
+                <p>High-quality content production for digital platforms and social media.</p>
+            </div>
+            <div class="service-card">
+                <h3>Minecraft Development</h3>
+                <p>Technical consulting, promotion, project and people management, community management.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 Nozercode</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
 </body>
 </html>
