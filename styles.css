@@ -190,19 +190,43 @@
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+    }
+
+    .projects, .services {
+        padding: 4rem 1rem;
+    }
+
     .projects .flare, .services .flare {
         width: 200px;
         height: 200px;
     }
-    
+
     .projects .flare-left, .services .flare-left {
         left: -50px;
     }
-    
+
     .projects .flare-right, .services .flare-right {
         right: -50px;
     }
+
+    .section-divider {
+        height: 100px;
+        margin: -30px 0;
+    }
+
+    .divider-line {
+        width: 80px;
+    }
+
+    .divider-dot {
+        width: 8px;
+        height: 8px;
+    }
 }
+
+
 
 /* Theme Toggle */
 .theme-toggle {
@@ -506,33 +530,6 @@
         font-size: 1.1rem;
         -webkit-line-clamp: 3;
         line-height: 1.5;
-    }
-}
-
-/* Small Mobile Adjustments */
-@media (max-width: 480px) {
-    .project-card {
-        aspect-ratio: 1/1;
-    }
-
-    .service-card {
-        aspect-ratio: 1/0.7;
-    }
-
-    .project-info h3, .service-card h3 {
-        font-size: 1.4rem;
-        -webkit-line-clamp: 2;
-        margin-bottom: 0.5rem;
-    }
-
-    .project-info p, .service-card p {
-        font-size: 1rem;
-        -webkit-line-clamp: 3;
-        line-height: 1.5;
-    }
-
-    .project-info, .service-card {
-        padding: 1.2rem;
     }
 }
 
@@ -1084,25 +1081,6 @@ h2 {
     }
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .projects, .services {
-        padding: 4rem 1rem;
-    }
-    
-    .projects .flare, .services .flare {
-        width: 250px;
-        height: 250px;
-    }
-    
-    .projects .flare-left, .services .flare-left {
-        left: -75px;
-    }
-    
-    .projects .flare-right, .services .flare-right {
-        right: -75px;
-    }
-}
 
 /* Smooth scrolling */
 html {
@@ -1181,19 +1159,6 @@ footer {
 [data-theme="light"] footer {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .service-card {
-        padding: 1.5rem;
-    }
-    
-    footer {
-        margin-top: 2rem;
-        padding: 1.5rem;
-    }
-}
-
 
 /* Music Toggle Button */
 .music-toggle {
@@ -1326,23 +1291,6 @@ footer {
         opacity: 0.7;
     }
 }
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .section-divider {
-        height: 100px;
-        margin: -30px 0;
-    }
-    
-    .divider-line {
-        width: 80px;
-    }
-    
-    .divider-dot {
-        width: 8px;
-        height: 8px;
-    }
-} 
 a {
     text-decoration: none;
 }
