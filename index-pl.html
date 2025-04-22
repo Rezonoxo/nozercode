@@ -1,41 +1,51 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="pl" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NozerCode</title>
+
+    <!-- Style & fonty – bez zmian -->
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
+    <!-- Loader -->
     <div class="loader">
         <div class="loader-content">
             <div class="loader-spinner"></div>
-            <div class="loader-text">Loading...</div>
+            <div class="loader-text">Ładowanie…</div>
         </div>
     </div>
 
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">NozerCode</div>
+
             <button class="menu-toggle">
                 <span class="menu-icon"></span>
             </button>
+
             <div class="nav-links">
-                
-                <a href="#projects">Projects</a>
-                <a href="#services">Services</a>
-                <a href="index-pl.html" class="lang-switch" title="Polski">
-                    <img src="images/polish.png" alt="Polski" width="24" height="24">
+                <a href="#projects">Projekty</a>
+                <a href="#services">Usługi</a>
+
+                <a href="index.html" class="lang-switch" title="Switch to English">
+                    <img src="images/english.png" alt="English" width="24" height="24">
                 </a>
-                <button class="music-toggle" aria-label="Toggle music">
+
+                <button class="music-toggle" aria-label="Przełącz muzykę">
                     <i class="fas fa-music"></i>
                 </button>
+
                 <label class="theme-switch">
                     <input type="checkbox" class="theme-checkbox">
                     <span class="theme-slider"></span>
@@ -44,15 +54,18 @@
         </div>
     </nav>
 
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
             <h1 class="main-title">NozerCode</h1>
+
             <div class="specializations">
-                <span class="specialization">Web Developer</span>
-                <span class="specialization">Graphic Designer</span>
-                <span class="specialization">Content Creator</span>
-                <span class="specialization">Minecraft Expert</span>
+                <span class="specialization">Twórca stron WWW</span>
+                <span class="specialization">Grafik</span>
+                <span class="specialization">Twórca treści</span>
+                <span class="specialization">Ekspert Minecraft</span>
             </div>
+
             <div class="social-links">
                 <a href="https://github.com/rezonoxo" target="_blank" class="social-link">
                     <i class="fab fa-github"></i>
@@ -73,46 +86,51 @@
         </div>
     </section>
 
+    <!-- Projekty -->
     <section id="projects" class="projects">
         <div class="flare flare-left"></div>
         <div class="flare flare-right"></div>
-        <h2>Featured Projects</h2>
+
+        <h2>Wybrane projekty</h2>
+
         <div class="projects-grid">
             <a href="https://rezonoxo.github.io/Centrum4life/" class="project-card">
                 <div class="project-image"><img src="images/centrum4life.png" alt="Centrum 4life"></div>
                 <div class="project-info">
                     <h3>Centrum 4life</h3>
-                    <p>Modern unofficcial MTA 4life help center with usefull tools and resources.</p>
+                    <p>Nowoczesne nieoficjalne centrum pomocy MTA 4life z przydatnymi narzędziami i zasobami.</p>
                 </div>
             </a>
+
             <a href="https://www.behance.net/nozercode/" class="project-card">
                 <div class="project-image"><img src="images/nozercode-graphics.png" alt="NozerCode Graphics"></div>
                 <div class="project-info">
                     <h3>NozerCode Graphics</h3>
-                    <p>Portfolio for my design works, photos and resources.</p>
+                    <p>Portfolio moich prac graficznych, zdjęć oraz zasobów.</p>
                 </div>
             </a>
+
             <a href="https://rezonoxo.github.io/kasyno/" class="project-card">
                 <div class="project-image"><img src="images/kosierb-casino.png" alt="Kosierb's Casino"></div>
                 <div class="project-info">
                     <h3>Kosierb's Casino</h3>
-                    <p>Casino Game. Using local storage to save data without spending money.</p>
+                    <p>Gra kasynowa korzystająca z localStorage, aby grać bez wydawania prawdziwych pieniędzy.</p>
                 </div>
             </a>
+
             <a href="https://dsc.gg/nozercode" class="project-card">
                 <div class="project-image">
                     <iframe src="https://discord.com/widget?id=1275333804160192532&theme=dark" width="100%" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                 </div>
                 <div class="project-info">
                     <h3>NozerCode Discord</h3>
-                    <p>Join our community Discord server for updates and support.</p>
+                    <p>Dołącz do naszej społeczności na Discordzie, aby otrzymywać aktualizacje i wsparcie.</p>
                 </div>
             </a>
         </div>
     </section>
-    
-    
 
+    <!-- Separator -->
     <div class="section-divider">
         <div class="divider-content">
             <div class="divider-line"></div>
@@ -121,40 +139,46 @@
         </div>
     </div>
 
+    <!-- Usługi -->
     <section id="services" class="services">
         <div class="flare flare-left"></div>
         <div class="flare flare-right"></div>
-        <h2>Services</h2>
+
+        <h2>Usługi</h2>
+
         <div class="services-grid">
             <div class="service-card">
-                <h3>Web Development</h3>
-                <p>Custom modern responsive static pages via HTML CSS JS</p>
+                <h3>Tworzenie stron</h3>
+                <p>Nowoczesne, responsywne strony statyczne (HTML CSS JS).</p>
             </div>
             <div class="service-card">
-                <h3>Graphic Design</h3>
-                <p>Professional design services, including advertising graphics, Youtube thumbnails, two letter logos, labels.</p>
+                <h3>Projekty graficzne</h3>
+                <p>Profesjonalne grafiki reklamowe, miniaturki YouTube, logotypy, etykiety.</p>
             </div>
             <div class="service-card">
-                <h3>Content Creation</h3>
-                <p>High-quality content production for digital platforms and social media.</p>
+                <h3>Tworzenie treści</h3>
+                <p>Wysokiej jakości produkcja treści na platformy cyfrowe i social media.</p>
             </div>
             <div class="service-card">
-                <h3>Minecraft Development</h3>
-                <p>Technical consulting, promotion, project and people management, community management.</p>
+                <h3>Rozwój Minecraft</h3>
+                <p>Konsulting techniczny, promocja, zarządzanie projektami i społecznością.</p>
             </div>
         </div>
     </section>
 
+    <!-- Stopka -->
     <footer>
         <div class="footer-content">
-            <p>© 2025 Nozercode</p>
+            <p>© 2025 Nozercode</p>
         </div>
     </footer>
 
-    <button class="back-to-top" aria-label="Back to top">
+    <!-- Back to top -->
+    <button class="back-to-top" aria-label="Powrót na górę">
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Skrypty -->
     <script src="script.js"></script>
 </body>
 </html>
