@@ -11,6 +11,18 @@ function debounce(func, wait) {
     };
 }
 
+// Sound effects system
+const clickSound = new Audio('music/click.wav');
+clickSound.volume = 0.3; // Set volume to 30%
+
+function playClickSound() {
+    // Reset audio to beginning and play
+    clickSound.currentTime = 0;
+    clickSound.play().catch(error => {
+        console.log('Click sound not available:', error);
+    });
+}
+
 // Loader screen
 window.addEventListener('load', () => {
     const loader = document.querySelector('.loader');
@@ -29,6 +41,7 @@ function updateTheme(isLight) {
 }
 
 themeCheckbox.addEventListener('change', () => {
+    playClickSound();
     updateTheme(themeCheckbox.checked);
 });
 
@@ -178,6 +191,7 @@ const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
 menuToggle.addEventListener('click', () => {
+    playClickSound();
     menuToggle.classList.toggle('active');
     navLinks.classList.toggle('active');
 });
@@ -193,6 +207,7 @@ document.addEventListener('click', debounce((e) => {
 // Close menu when clicking a link
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
+        playClickSound();
         menuToggle.classList.remove('active');
         navLinks.classList.remove('active');
     });
@@ -216,6 +231,7 @@ updateBackToTopButton();
 window.addEventListener('scroll', debounce(updateBackToTopButton, 100));
 
 backToTopButton.addEventListener('click', () => {
+    playClickSound();
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
@@ -330,6 +346,8 @@ document.addEventListener('click', () => {
 }, { once: true });
 
 musicToggle.addEventListener('click', () => {
+    playClickSound();
+    
     if (!hasUserInteracted) {
         hasUserInteracted = true;
     }
@@ -353,5 +371,93 @@ document.addEventListener('visibilitychange', () => {
         fadeOut();
     } else if (!document.hidden && isMusicPlaying) {
         fadeIn();
+    }
+});
+
+// Language management
+let currentLanguage = 'en';
+
+// Function to detect user's language and location
+function detectUserLanguage() {
+    // Check localStorage first (user preference)
+    const savedLanguage = localStorage.getItem('language');
+    if (savedLanguage) {
+        return savedLanguage;
+    }
+    
+    // Check browser language
+    const browserLang = navigator.language || navigator.userLanguage;
+    const langCode = browserLang.split('-')[0].toLowerCase();
+    
+    // Check if user is in Poland (based on timezone or other indicators)
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const isInPoland = timezone.includes('Europe/Warsaw') || 
+                      timezone.includes('Europe/Berlin') || 
+                      browserLang.includes('pl');
+    
+    // Return Polish if user is in Poland or has Polish browser language
+    if (isInPoland || langCode === 'pl') {
+        return 'pl';
+    }
+    
+    // Default to English
+    return 'en';
+}
+
+// Function to update all translated elements
+function updateLanguage(lang) {
+    currentLanguage = lang;
+    document.documentElement.lang = lang;
+    localStorage.setItem('language', lang);
+    
+    // Update all elements with data-translate attribute
+    const elements = document.querySelectorAll('[data-translate]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        const translation = getTranslation(key, lang);
+        
+        if (element.tagName === 'INPUT' && element.type === 'placeholder') {
+            element.placeholder = translation;
+        } else {
+            element.textContent = translation;
+        }
+    });
+    
+    // Update language switcher
+    const langSwitch = document.getElementById('langSwitch');
+    if (langSwitch) {
+        langSwitch.setAttribute('data-lang', lang);
+        const titleKey = lang === 'pl' ? 'ui.switchToEnglish' : 'ui.switchToPolish';
+        langSwitch.title = getTranslation(titleKey, lang);
+    }
+}
+
+// Initialize language
+document.addEventListener('DOMContentLoaded', () => {
+    const detectedLang = detectUserLanguage();
+    updateLanguage(detectedLang);
+    
+    // Add click sound to social links
+    document.querySelectorAll('.social-link').forEach(link => {
+        link.addEventListener('click', () => {
+            playClickSound();
+        });
+    });
+    
+    // Add click sound to project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', () => {
+            playClickSound();
+        });
+    });
+    
+    // Language switcher event listener
+    const langSwitch = document.getElementById('langSwitch');
+    if (langSwitch) {
+        langSwitch.addEventListener('click', () => {
+            playClickSound();
+            const newLang = currentLanguage === 'en' ? 'pl' : 'en';
+            updateLanguage(newLang);
+        });
     }
 });

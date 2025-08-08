@@ -16,7 +16,7 @@
     <div class="loader">
         <div class="loader-content">
             <div class="loader-spinner"></div>
-            <div class="loader-text">Loading...</div>
+            <div class="loader-text" data-translate="ui.loading">Loading...</div>
         </div>
     </div>
 
@@ -28,12 +28,13 @@
             </button>
             <div class="nav-links">
                 
-                <a href="#projects">Projects</a>
-                <a href="#services">Services</a>
-                <a href="regulamin.html" class="nav-link">Terms of Service</a>
-                <a href="index-pl.html" class="lang-switch" title="Polski">
-                    <img src="images/polish.png" alt="Polski" width="24" height="24">
-                </a>
+                <a href="#projects" data-translate="nav.projects">Projects</a>
+                <a href="#services" data-translate="nav.services">Services</a>
+                <a href="regulamin.html" class="nav-link" data-translate="nav.termsOfService">Terms of Service</a>
+                
+                <!-- Language switcher -->
+                <button class="lang-switch" id="langSwitch" data-lang="en" title="Switch language">
+                </button>
                 <button class="music-toggle" aria-label="Toggle music">
                     <i class="fas fa-music"></i>
                 </button>
@@ -49,10 +50,10 @@
         <div class="hero-content">
             <h1 class="main-title">NozerCode</h1>
             <div class="specializations">
-                <span class="specialization">Web Developer</span>
-                <span class="specialization">Graphic Designer</span>
-                <span class="specialization">Content Creator</span>
-                <span class="specialization">Minecraft Expert</span>
+                <span class="specialization" data-translate="hero.specializations.webDeveloper">Web Developer</span>
+                <span class="specialization" data-translate="hero.specializations.graphicDesigner">Graphic Designer</span>
+                <span class="specialization" data-translate="hero.specializations.contentCreator">Content Creator</span>
+                <span class="specialization" data-translate="hero.specializations.minecraftExpert">Minecraft Expert</span>
             </div>
             <div class="social-links">
                 <a href="https://github.com/rezonoxo" target="_blank" class="social-link">
@@ -77,34 +78,34 @@
     <section id="projects" class="projects">
         <div class="flare flare-left"></div>
         <div class="flare flare-right"></div>
-        <h2>Featured Projects</h2>
+        <h2 data-translate="projects.title">Featured Projects</h2>
         <div class="projects-grid">
             <a href="https://rezonoxo.github.io/Centrum4life/" class="project-card">
                 <div class="project-image"><img src="images/centrum4life.png" alt="Centrum 4life"></div>
                 <div class="project-info">
-                    <h3>Centrum 4life</h3>
-                    <p>Modern unofficcial MTA 4life help center with usefull tools and resources.</p>
+                    <h3 data-translate="projects.items.centrum4life.title">Centrum 4life</h3>
+                    <p data-translate="projects.items.centrum4life.description">Modern unofficcial MTA 4life help center with usefull tools and resources.</p>
                 </div>
             </a>
-            <a href="https://www.behance.net/nozercode/" class="project-card">
-                <div class="project-image"><img src="images/nozercode-graphics.png" alt="NozerCode Graphics"></div>
+            <a href="https://rezonoxo.github.io/TRIBOL/" class="project-card">
+                <div class="project-image"><img src="images/tribol.png" alt="TRIBOL System"></div>
                 <div class="project-info">
-                    <h3>NozerCode Graphics</h3>
-                    <p>Portfolio for my design works, photos and resources.</p>
+                    <h3 data-translate="projects.items.tribol.title">System TRIBOL</h3>
+                    <p data-translate="projects.items.tribol.description">Custom text encryption system based on ternary algorithm.</p>
                 </div>
             </a>
             <a href="https://rezonoxo.github.io/kasyno/" class="project-card">
                 <div class="project-image"><img src="images/kosierb-casino.png" alt="Kosierb's Casino"></div>
                 <div class="project-info">
-                    <h3>Kosierb's Casino</h3>
-                    <p>Casino Game. Using local storage to save data without spending money.</p>
+                    <h3 data-translate="projects.items.kosierbCasino.title">Kosierb's Casino</h3>
+                    <p data-translate="projects.items.kosierbCasino.description">Casino Game. Using local storage to save data without spending money.</p>
                 </div>
             </a>
             <a href="https://nozertools.nozer.site/" class="project-card">
                 <div class="project-image"><img src="images/nozertools.png" alt="NozerTools"></div>
                 <div class="project-info">
-                    <h3>NozerTools project</h3>
-                    <p>Page with tools: waste calculator, generators, psychological test.</p>
+                    <h3 data-translate="projects.items.nozerTools.title">NozerTools project</h3>
+                    <p data-translate="projects.items.nozerTools.description">Page with tools: waste calculator, generators, psychological test.</p>
                 </div>
             </a>
         </div>
@@ -123,23 +124,23 @@
     <section id="services" class="services">
         <div class="flare flare-left"></div>
         <div class="flare flare-right"></div>
-        <h2>Services</h2>
+        <h2 data-translate="services.title">Services</h2>
         <div class="services-grid">
             <div class="service-card">
-                <h3>Web Development</h3>
-                <p>Custom modern responsive static pages via HTML CSS JS</p>
+                <h3 data-translate="services.items.webDevelopment.title">Web Development</h3>
+                <p data-translate="services.items.webDevelopment.description">Custom modern responsive static pages via HTML CSS JS</p>
             </div>
             <div class="service-card">
-                <h3>Graphic Design</h3>
-                <p>Professional design services, including advertising graphics, Youtube thumbnails, two letter logos, labels.</p>
+                <h3 data-translate="services.items.graphicDesign.title">Graphic Design</h3>
+                <p data-translate="services.items.graphicDesign.description">Professional design services, including advertising graphics, Youtube thumbnails, two letter logos, labels.</p>
             </div>
             <div class="service-card">
-                <h3>Content Creation</h3>
-                <p>High-quality content production for digital platforms and social media.</p>
+                <h3 data-translate="services.items.contentCreation.title">Content Creation</h3>
+                <p data-translate="services.items.contentCreation.description">High-quality content production for digital platforms and social media.</p>
             </div>
             <div class="service-card">
-                <h3>Minecraft Development</h3>
-                <p>Technical consulting, promotion, project and people management, community management.</p>
+                <h3 data-translate="services.items.discordServices.title">Discord Services</h3>
+                <p data-translate="services.items.discordServices.description">Discord server setup, bot development, community management, and server administration.</p>
             </div>
         </div>
     </section>
@@ -147,9 +148,9 @@
     <footer>
         <div class="footer-content">
             <div style="margin-bottom:0.5em;">
-                <a href="regulamin.html" style="color:var(--accent);text-decoration:underline;">Terms of Service</a>
+                <a href="regulamin.html" style="color:var(--accent);text-decoration:underline;" data-translate="nav.termsOfService">Terms of Service</a>
             </div>
-            <p>© 2025 Nozercode</p>
+            <p data-translate="footer.copyright">© 2025 Nozercode</p>
         </div>
     </footer>
 
@@ -157,6 +158,7 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
