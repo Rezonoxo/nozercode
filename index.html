@@ -13,6 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
     <div class="loader">
         <div class="loader-content">
             <div class="loader-spinner"></div>
@@ -147,10 +148,31 @@
 
     <footer>
         <div class="footer-content">
-            <div style="margin-bottom:0.5em;">
-                <a href="regulamin.html" style="color:var(--accent);text-decoration:underline;" data-translate="nav.termsOfService">Terms of Service</a>
+            <div class="footer-links">
+                <a href="regulamin.html" class="footer-link footer-link-regulamin" data-translate="nav.termsOfService" title="Regulamin Usług / Terms of Service">
+                    <span class="footer-link-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <rect x="3" y="3" width="14" height="14" rx="3" fill="var(--accent)" fill-opacity="0.13" stroke="var(--accent)" stroke-width="1.2"/>
+                            <path d="M7 9.5H13M7 12H11" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span class="footer-link-label">Regulamin</span>
+                </a>
+                <a href="https://links.nozer.site/" class="footer-link" target="_blank" rel="noopener" title="Wszystkie linki">
+                    <span class="footer-link-icon"><i class="fas fa-link"></i></span>
+                    <span class="footer-link-label">Linki</span>
+                </a>
+                <a href="https://dsc.gg/nozercode" class="footer-link" target="_blank" rel="noopener" title="Discord">
+                    <span class="footer-link-icon"><i class="fab fa-discord"></i></span>
+                    <span class="footer-link-label">Discord</span>
+                </a>
             </div>
-            <p data-translate="footer.copyright">© 2025 Nozercode</p>
+            <p class="footer-copy" data-translate="footer.copyright">© 2025 Nozercode</p>
+            <div class="footer-madeby">Made with <span class="footer-heart" aria-label="love">
+                <svg width="22" height="20" viewBox="0 0 22 20" fill="red" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                    <path d="M11 18s-6.3-4.35-8.55-7.05C.6 8.1.6 5.1 2.45 3.25 4.3 1.4 7.3 1.4 9.15 3.25L11 5.1l1.85-1.85c1.85-1.85 4.85-1.85 6.7 0 1.85 1.85 1.85 4.85 0 6.7C17.3 13.65 11 18 11 18z" fill="#e53935" stroke="#b71c1c" stroke-width="1.2"/>
+                </svg>
+            </span> by Nozer</div>
         </div>
     </footer>
 
@@ -159,6 +181,16 @@
     </button>
 
     <script src="translations.js"></script>
+    <script>
+    // Scroll Progress Bar
+    window.addEventListener('scroll', function() {
+        const bar = document.getElementById('scrollProgressBar');
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        bar.style.width = scrolled + '%';
+    });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

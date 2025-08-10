@@ -14,7 +14,7 @@ const translations = {
                 webDeveloper: "Web Developer",
                 graphicDesigner: "Graphic Designer",
                 contentCreator: "Content Creator",
-                minecraftExpert: "Minecraft Expert"
+                minecraftExpert: "Discord Expert"
             }
         },
         
@@ -84,7 +84,7 @@ const translations = {
         nav: {
             projects: "Projekty",
             services: "Usługi",
-            termsOfService: "Regulamin"
+            termsOfService: "Regulamin Usług"
         },
         
         // Hero section
@@ -93,7 +93,7 @@ const translations = {
                 webDeveloper: "Twórca stron WWW",
                 graphicDesigner: "Grafik",
                 contentCreator: "Twórca treści",
-                minecraftExpert: "Ekspert Minecraft"
+                minecraftExpert: "Technik Discord"
             }
         },
         

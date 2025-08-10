@@ -6,65 +6,96 @@
   <title>Regulamin Usług Nozercode</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --main-bg: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      --accent: #6c63ff;
+      --accent-light: #b3afff;
+      --text: #ffffff;
+      --nav-bg: rgba(10,10,10,0.98);
+      --nav-link-bg: rgba(108,99,255,0.10);
+      --nav-link-hover: #6c63ff;
+      --nav-link-active: #fff;
+      --container-bg: rgba(26,26,26,0.96);
+      --shadow: 0 4px 24px rgba(0,0,0,0.13);
+      --footer-bg: rgba(255,255,255,0.07);
+    }
+    html, body {
       margin: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: linear-gradient(135deg, #2b1e16 0%, #3e2c1f 100%);
-      color: #f5f5f5;
-      line-height: 1.7;
       padding: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--main-bg);
+      color: var(--text);
       min-height: 100vh;
+      scroll-behavior: smooth;
     }
-    .container {
-      max-width: 900px;
-      margin: 3rem auto 2rem auto;
-      padding: 2rem 1.5rem;
-      background: rgba(43,30,22,0.92); /* mocniejsze tło pod tekstem */
-      border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.13);
-      animation: fadeIn 1.2s;
+    body {
+      position: relative;
+      z-index: 1;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    #particles-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.18;
     }
     header {
+      width: 100vw;
+      background: var(--nav-bg);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      transition: background 0.3s;
+    }
+    .nav-inner {
+      max-width: 980px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.5rem 2.5vw 1rem 2.5vw; /* Dodano padding boczny */
-      max-width: 900px;
-      margin: 0 auto;
-      background: none;
-      box-sizing: border-box;
+      padding: 1.1rem 2vw 1.1rem 2vw;
     }
     .brand {
-      font-size: 2rem;
+      font-size: 2.1rem;
       font-weight: 700;
-      color: #d4af7f;
+      color: var(--accent);
       letter-spacing: 2px;
-      text-shadow: 0 2px 8px #0005;
+      text-shadow: 0 2px 12px #0007;
       display: flex;
       align-items: center;
       gap: 0.7rem;
+      user-select: none;
+      text-transform: uppercase;
+      font-family: 'Montserrat', Arial, sans-serif;
     }
     nav {
       display: flex;
       gap: 1.2rem;
       position: relative;
+      align-items: center;
     }
     nav a {
-      color: #f5f5f5;
+      color: var(--text);
       text-decoration: none;
       font-weight: 600;
       padding: 0.5rem 1.2rem;
       border-radius: 6px;
-      background: rgba(212,175,127,0.08);
+      background: var(--nav-link-bg);
       transition: background 0.2s, color 0.2s;
       font-size: 1rem;
+      position: relative;
+      outline: none;
     }
-    nav a:hover {
-      background: #d4af7f;
+    nav a.active, nav a[aria-current="page"] {
+      background: var(--nav-link-hover);
+      color: #2b1e16;
+      font-weight: 700;
+      box-shadow: 0 2px 12px #d4af7f33;
+    }
+    nav a:hover, nav a:focus-visible {
+      background: var(--nav-link-hover);
       color: #2b1e16;
     }
     .menu-toggle {
@@ -75,45 +106,36 @@
       height: 36px;
       cursor: pointer;
       margin-left: 1rem;
+      z-index: 20;
     }
     .menu-toggle span {
       height: 4px;
       width: 100%;
-      background: #d4af7f;
+      background: var(--accent);
       margin: 4px 0;
       border-radius: 2px;
       transition: 0.3s;
     }
-    @media (max-width: 800px) {
-      .container, header, footer {
-        max-width: 98vw;
+    @media (max-width: 900px) {
+      .nav-inner {
+        max-width: 99vw;
         padding-left: 2vw;
         padding-right: 2vw;
       }
-      .container {
-        margin: 1.5rem auto 1.5rem auto;
-        padding: 1.2rem 0.5rem;
-      }
-      header {
-        padding: 1rem 2vw 0.5rem 2vw; /* Dodano padding boczny */
-      }
-      .brand {
-        font-size: 1.3rem;
-      }
     }
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       nav {
         position: absolute;
         top: 60px;
-        right: 2vw; /* Dodano odstęp od prawej krawędzi */
-        background: rgba(43,30,22,0.98);
+        right: 2vw;
+        background: var(--nav-bg);
         flex-direction: column;
         gap: 0;
         width: 180px;
         border-radius: 0 0 10px 10px;
         box-shadow: 0 8px 24px #0005;
         overflow: hidden;
-        z-index: 10;
+        z-index: 15;
         display: none;
       }
       nav.open {
@@ -129,28 +151,48 @@
         display: flex;
       }
     }
+    .container {
+      max-width: 900px;
+      margin: 3rem auto 2rem auto;
+      padding: 2.5rem 2rem;
+      background: var(--container-bg);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px #0005;
+      animation: fadeInPage 0.7s;
+      min-height: 60vh;
+      position: relative;
+      z-index: 2;
+      transition: box-shadow 0.3s;
+      border: 1.5px solid var(--accent);
+    }
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
     h1 {
-      color: #d4af7f;
+      color: var(--accent);
       text-align: center;
-      font-size: 2.1rem;
+      font-size: 2.4rem;
       margin-bottom: 1.2rem;
-      letter-spacing: 1px;
-      font-weight: 700;
-      text-shadow: 0 2px 8px #0004;
+      letter-spacing: 1.5px;
+      font-weight: 800;
+      text-shadow: 0 4px 16px #0007;
+      text-transform: uppercase;
     }
     h2 {
-      color: #f5e2c0;
+      color: var(--accent-light);
       margin-top: 2.2rem;
       margin-bottom: 1rem;
-      font-size: 1.2rem;
-      font-weight: 600;
-      border-left: 4px solid #d4af7f;
-      border-right: 4px solid #d4af7f;
+      font-size: 1.18rem;
+      font-weight: 700;
+      border-left: 4px solid var(--accent);
+      border-right: 4px solid var(--accent);
       padding-left: 0.7rem;
-      background: rgba(212,175,127,0.05);
-      border-radius: 6px;
-      box-shadow: 0 2px 8px #0001;
+      background: rgba(169,127,245,0.08);
+      border-radius: 8px;
+      box-shadow: 0 2px 12px #0002;
       text-align: center;
+      letter-spacing: 0.5px;
     }
     ol, ul {
       margin-left: 1.2rem;
@@ -165,64 +207,87 @@
     }
     ol > li, ul > li {
       margin-bottom: 0.5rem;
-      background: rgba(255,255,255,0.03);
-      border-radius: 6px;
-      padding: 0.6rem 0.9rem;
+      background: rgba(255,255,255,0.02);
+      border-radius: 7px;
+      padding: 0.7rem 1.1rem;
       transition: background 0.2s;
-      font-size: 1.01rem;
+      font-size: 1.04rem;
+      border-left: 3px solid var(--accent);
     }
     ol > li:hover, ul > li:hover {
-      background: rgba(212,175,127,0.10);
+      background: rgba(169,127,245,0.10);
     }
     strong {
-      color: #d4af7f;
+      color: var(--accent);
+      font-weight: 700;
     }
     footer {
       text-align: center;
       margin-top: 2rem;
       padding: 1.1rem;
-      background: rgba(255,255,255,0.07);
-      border-radius: 10px;
-      font-size: 0.93rem;
-      color: #e0d6c7;
-      letter-spacing: 0.5px;
-      box-shadow: 0 2px 8px #0002;
+      background: var(--footer-bg);
+      border-radius: 12px;
+      font-size: 0.98rem;
+      color: #e2d0f5;
+      letter-spacing: 0.7px;
+      box-shadow: 0 2px 12px #0003;
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
-    }
-    /* Minimalistyczne podkreślenie aktywnej sekcji */
-    section h2:target {
-      background: #d4af7f;
-      color: #2b1e16;
-      transition: background 0.3s, color 0.3s;
-    }
-    #particles-bg {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.18;
-    }
-    body, .container, header, footer {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      border: 1px solid var(--accent);
+    }
+    /* Fade transition for page content */
+    .fade-out {
+      animation: fadeOutPage 0.5s forwards;
+    }
+    @keyframes fadeOutPage {
+      to { opacity: 0; transform: translateY(30px);}
     }
   </style>
   <script>
+    // SPA-like fade transition for navigation
     document.addEventListener('DOMContentLoaded', function() {
+      // Navbar mobile
       const menuToggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('header nav');
       menuToggle && menuToggle.addEventListener('click', function() {
         nav.classList.toggle('open');
       });
-      // Zamknij menu po kliknięciu linku (na mobile)
       nav && nav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           nav.classList.remove('open');
         });
       });
-      // Particle animation
+
+      // Highlight current page in navbar
+      const navLinks = document.querySelectorAll('nav a');
+      navLinks.forEach(link => {
+        if (window.location.pathname.endsWith(link.getAttribute('href'))) {
+          link.classList.add('active');
+          link.setAttribute('aria-current', 'page');
+        }
+      });
+
+      // SPA-like fade transition between pages
+      navLinks.forEach(link => {
+        // Only for local links
+        if (link.hostname === window.location.hostname && !link.hasAttribute('target')) {
+          link.addEventListener('click', function(e) {
+            if (link.href !== window.location.href) {
+              e.preventDefault();
+              const container = document.querySelector('.container');
+              container.classList.add('fade-out');
+              setTimeout(() => {
+                window.location = link.href;
+              }, 400);
+            }
+          });
+        }
+      });
+
+      // Particle animation (unchanged)
       const canvas = document.createElement('canvas');
       canvas.id = 'particles-bg';
       document.body.prepend(canvas);
@@ -234,8 +299,6 @@
       }
       resize();
       window.addEventListener('resize', resize);
-      // Particle config
-      const PARTICLE_COUNT = Math.floor((w * h) / 3500);
       const SHAPES = ['circle', 'triangle', 'cross', 'square'];
       function randomColor() {
         const palette = ['#d4af7f', '#f5e2c0', '#fff', '#bfa77a'];
@@ -270,13 +333,29 @@
           ctx.lineWidth = 1.2;
           switch(this.shape) {
             case 'circle':
-              ctx.beginPath(); ctx.arc(0,0,this.size/2,0,2*Math.PI); ctx.stroke(); break;
+              ctx.beginPath();
+              ctx.arc(0, 0, this.size/2, 0, Math.PI*2);
+              ctx.stroke();
+              break;
             case 'triangle':
-              ctx.beginPath(); ctx.moveTo(0,-this.size/2); ctx.lineTo(this.size/2,this.size/2); ctx.lineTo(-this.size/2,this.size/2); ctx.closePath(); ctx.stroke(); break;
+              ctx.beginPath();
+              ctx.moveTo(0, -this.size/2);
+              ctx.lineTo(this.size/2, this.size/2);
+              ctx.lineTo(-this.size/2, this.size/2);
+              ctx.closePath();
+              ctx.stroke();
+              break;
             case 'cross':
-              ctx.beginPath(); ctx.moveTo(-this.size/2,0); ctx.lineTo(this.size/2,0); ctx.moveTo(0,-this.size/2); ctx.lineTo(0,this.size/2); ctx.stroke(); break;
+              ctx.beginPath();
+              ctx.moveTo(-this.size/2, 0);
+              ctx.lineTo(this.size/2, 0);
+              ctx.moveTo(0, -this.size/2);
+              ctx.lineTo(0, this.size/2);
+              ctx.stroke();
+              break;
             case 'square':
-              ctx.beginPath(); ctx.rect(-this.size/2,-this.size/2,this.size,this.size); ctx.stroke(); break;
+              ctx.strokeRect(-this.size/2, -this.size/2, this.size, this.size);
+              break;
           }
           ctx.restore();
         }
@@ -315,17 +394,19 @@
 </head>
 <body>
   <header>
-    <div class="brand">Nozercode</div>
-    <div class="menu-toggle" aria-label="Otwórz menu" tabindex="0">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="nav-inner">
+      <div class="brand">Nozercode</div>
+      <div class="menu-toggle" aria-label="Otwórz menu" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav>
+  <a href="index.html">Strona główna</a>
+  <a href="https://links.nozer.site/" target="_blank">Linki</a>
+  <a href="https://dsc.gg/nozercode" target="_blank">Kontakt (discord)</a>
+      </nav>
     </div>
-    <nav>
-      <a href="index.html">Strona główna</a>
-      <a href="https://nozer.site" target="_blank">Linki</a>
-      <a href="https://dsc.gg/nozercode" target="_blank">Kontakt (discord)</a>
-    </nav>
   </header>
   <div class="container">
     <h1>Regulamin Usług Nozercode</h1>
