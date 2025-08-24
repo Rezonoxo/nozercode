@@ -308,6 +308,10 @@
     .flare-right{
         display: none;
     }
+
+    /* Center navbar on small screens */
+    .nav-content{flex-direction:column;align-items:center}
+    .nav-links{display:flex;gap:12px;justify-content:center;margin-top:10px}
 }
 
 
@@ -328,6 +332,33 @@
     transform: scale(1.1);
     color: var(--accent);
     opacity: 1;
+}
+
+/* Homepage portfolio CTA (under Projects) */
+.projects-cta .btn.primary{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 22px;
+    border-radius:999px;
+    background: linear-gradient(90deg, rgba(108,99,255,0.10), rgba(108,99,255,0.06));
+    color: var(--text-primary);
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 10px 30px rgba(108,99,255,0.06);
+    transition: transform .18s ease, box-shadow .2s ease, opacity .15s;
+    text-decoration:none;
+}
+.projects-cta .btn.primary:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 18px 46px rgba(108,99,255,0.09);
+}
+
+/* Ensure strong look in light theme */
+[data-theme="light"] .projects-cta .btn.primary{
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+    color: white;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 12px 36px rgba(108,99,255,0.12);
 }
 
 /* Skills Animation */

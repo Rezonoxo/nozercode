@@ -4,6 +4,8 @@ const translations = {
         // Navigation
         nav: {
             projects: "Projects",
+            portfolio: "Portfolio",
+            links: "Links",
             services: "Services",
             termsOfService: "Terms of Service"
         },
@@ -76,6 +78,9 @@ const translations = {
             toggleMusic: "Toggle music",
             switchToPolish: "Przełącz na polski",
             switchToEnglish: "Switch to English"
+            ,
+            viewPortfolio: "See portfolio",
+            links: "Socials"
         }
     },
     
@@ -83,6 +88,8 @@ const translations = {
         // Navigation
         nav: {
             projects: "Projekty",
+            portfolio: "Portfolio",
+            links: "Linki",
             services: "Usługi",
             termsOfService: "Regulamin Usług"
         },
@@ -155,6 +162,9 @@ const translations = {
             toggleMusic: "Przełącz muzykę",
             switchToPolish: "Przełącz na polski",
             switchToEnglish: "Switch to English"
+            ,
+            viewPortfolio: "Zobacz portfolio",
+            links: "Media społecznościowe"
         }
     }
 };
