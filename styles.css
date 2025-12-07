@@ -733,6 +733,18 @@ body {
     line-height: 1.2;
 }
 
+/* Name rotator styling (inline in main title) */
+.name-rotator{
+    display:inline-block;
+    color:var(--accent);
+    transition: transform 0.42s cubic-bezier(.2,.9,.2,1), opacity 0.42s cubic-bezier(.2,.9,.2,1);
+    will-change: transform, opacity;
+}
+.name-rotator.out{
+    opacity:0;
+    transform: translateY(-8px) scale(0.98);
+}
+
 .specializations {
     display: flex;
     flex-wrap: wrap;
@@ -862,6 +874,9 @@ h2 {
         grid-template-columns: 1fr;
         gap: 1rem;
         padding: 0 1rem;
+    }
+    .main-title{
+        padding-top: 60px;
     }
 }
 

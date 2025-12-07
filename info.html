@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Przenoszenie</title>
+
+<style>
+    :root {
+        --text-primary: #ffffff;
+        --bg: #0d0d10;
+    }
+
+    body {
+        margin: 0;
+        background: var(--bg);
+        font-family: Arial, sans-serif;
+        color: var(--text-primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .wrapper {
+        text-align: center;
+        max-width: 550px;
+        padding: 20px;
+    }
+
+    img {
+        width: auto;
+        max-width: 90%;
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 20px;
+    }
+
+    h2 {
+        font-weight: 400;
+        line-height: 1.4;
+        margin-bottom: 25px;
+    }
+    p{
+        font-size: small;
+        color: #5b5b5b;
+        text-align: center;
+    }
+    p:hover{
+        transition: 1s;
+        color: rgb(126, 126, 126)
+    }
+    p:not(hover){
+        transition: 0.2s;
+        color: #5b5b5b
+    }
+
+    /* Twój styl przycisku, dostosowany */
+    .btn-primary {
+        display:inline-flex;
+        align-items:center;
+        gap:10px;
+        padding:12px 22px;
+        border-radius:999px;
+        background: linear-gradient(90deg, rgba(108,99,255,0.10), rgba(108,99,255,0.06));
+        color: var(--text-primary);
+        border: 1px solid rgba(255,255,255,0.04);
+        box-shadow: 0 10px 30px rgba(108,99,255,0.06);
+        transition: transform .18s ease, box-shadow .2s ease, opacity .15s;
+        text-decoration:none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .btn-primary:hover{
+        transform: translateY(-4px);
+        box-shadow: 0 18px 46px rgba(108,99,255,0.09);
+        background-color: #2d2d38;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+    <img src="images/instrukcja.png" alt="Ilustracja">
+    
+    <h2>
+        Zostaniesz przeniesiony na stronę zewnętrzną,
+        w przypadku wystąpienia przedstawionego komunikatu postępuj zgodnie z instrukacją na zdjęciu powyżej.
+    </h2>
+    <p>Komunikat pojawia się ze względu na brak certyfikatu SSL na stronie. Żadna z moich stron nie zbiera żadnych danych dlatego nie ma obaw o utratę danych bądź innego niebezpieczeństwa.</p>
+
+    <a id="redirectLink" href="#" class="btn-primary" target="_blank" rel="noopener noreferrer">Przenieś mnie</a>
+</div>
+
+<script>
+(function(){
+    const defaultTarget = 'http://links.nozer.site/';
+    const params = new URLSearchParams(location.search);
+    let target = params.get('to') || params.get('target') || '';
+
+    if (!target) {
+        const host = location.hostname || '';
+        if (host.endsWith('nozer.site') && host !== 'nozer.site') {
+            target = (location.protocol === 'https:' ? 'https://' : 'http://') + host + '/';
+        } else {
+            const firstSegment = location.pathname.split('/').filter(Boolean)[0];
+            if (firstSegment) {
+                target = (location.protocol === 'https:' ? 'https://' : 'http://') + firstSegment + '.nozer.site/';
+            } else {
+                target = defaultTarget;
+            }
+        }
+    } else {
+        if (!/^https?:\/\//i.test(target)) {
+            // allow passing host like "links.nozer.site" or "/links"
+            target = target.replace(/^\/+/, '');
+            // if param looks like a single segment (no dot), treat as subdomain
+            if (!target.includes('.') && /^[a-z0-9-]+$/i.test(target)) {
+                target = (location.protocol === 'https:' ? 'https://' : 'http://') + target + '.nozer.site/';
+            } else {
+                target = 'http://' + target;
+            }
+        }
+        if (!/\/$/.test(target)) target += '/';
+    }
+
+    const a = document.getElementById('redirectLink');
+    if (a) {
+        a.href = target;
+        const label = target.replace(/^https?:\/\//, '').replace(/\/$/, '');
+        a.textContent = 'Przenieś mnie — ' + label;
+    }
+})();
+</script>
+
+</body>
+</html>
