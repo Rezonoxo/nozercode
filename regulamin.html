@@ -3,99 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Informacje o stronie Nozer</title>
+  <title>Regulamin Usług Nozercode</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --main-bg: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-      --accent: #6c63ff;
-      --accent-light: #b3afff;
-      --text: #ffffff;
-      --nav-bg: rgba(10,10,10,0.98);
-      --nav-link-bg: rgba(108,99,255,0.10);
-      --nav-link-hover: #6c63ff;
-      --nav-link-active: #fff;
-      --container-bg: rgba(26,26,26,0.96);
-      --shadow: 0 4px 24px rgba(0,0,0,0.13);
-      --footer-bg: rgba(255,255,255,0.07);
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: var(--main-bg);
-      color: var(--text);
-      min-height: 100vh;
-      scroll-behavior: smooth;
-    }
     body {
-      position: relative;
-      z-index: 1;
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(135deg, #2b1e16 0%, #3e2c1f 100%);
+      color: #f5f5f5;
+      line-height: 1.7;
+      padding: 0;
+      min-height: 100vh;
     }
-    #particles-bg {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.18;
+    .container {
+      max-width: 900px;
+      margin: 3rem auto 2rem auto;
+      padding: 2rem 1.5rem;
+      background: rgba(43,30,22,0.92); /* mocniejsze tło pod tekstem */
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+      animation: fadeIn 1.2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     header {
-      width: 100vw;
-      background: var(--nav-bg);
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 0;
-      left: 0;
-      z-index: 10;
-      transition: background 0.3s;
-    }
-    .nav-inner {
-      max-width: 980px;
-      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.1rem 2vw 1.1rem 2vw;
+      padding: 1.5rem 2.5vw 1rem 2.5vw; /* Dodano padding boczny */
+      max-width: 900px;
+      margin: 0 auto;
+      background: none;
+      box-sizing: border-box;
     }
     .brand {
-      font-size: 2.1rem;
+      font-size: 2rem;
       font-weight: 700;
-      color: var(--accent);
+      color: #d4af7f;
       letter-spacing: 2px;
-      text-shadow: 0 2px 12px #0007;
+      text-shadow: 0 2px 8px #0005;
       display: flex;
       align-items: center;
       gap: 0.7rem;
-      user-select: none;
-      text-transform: uppercase;
-      font-family: 'Montserrat', Arial, sans-serif;
     }
     nav {
       display: flex;
       gap: 1.2rem;
       position: relative;
-      align-items: center;
     }
     nav a {
-      color: var(--text);
+      color: #f5f5f5;
       text-decoration: none;
       font-weight: 600;
       padding: 0.5rem 1.2rem;
       border-radius: 6px;
-      background: var(--nav-link-bg);
+      background: rgba(212,175,127,0.08);
       transition: background 0.2s, color 0.2s;
       font-size: 1rem;
-      position: relative;
-      outline: none;
     }
-    nav a.active, nav a[aria-current="page"] {
-      background: var(--nav-link-hover);
-      color: #2b1e16;
-      font-weight: 700;
-      box-shadow: 0 2px 12px #d4af7f33;
-    }
-    nav a:hover, nav a:focus-visible {
-      background: var(--nav-link-hover);
+    nav a:hover {
+      background: #d4af7f;
       color: #2b1e16;
     }
     .menu-toggle {
@@ -106,36 +75,45 @@
       height: 36px;
       cursor: pointer;
       margin-left: 1rem;
-      z-index: 20;
     }
     .menu-toggle span {
       height: 4px;
       width: 100%;
-      background: var(--accent);
+      background: #d4af7f;
       margin: 4px 0;
       border-radius: 2px;
       transition: 0.3s;
     }
-    @media (max-width: 900px) {
-      .nav-inner {
-        max-width: 99vw;
+    @media (max-width: 800px) {
+      .container, header, footer {
+        max-width: 98vw;
         padding-left: 2vw;
         padding-right: 2vw;
       }
+      .container {
+        margin: 1.5rem auto 1.5rem auto;
+        padding: 1.2rem 0.5rem;
+      }
+      header {
+        padding: 1rem 2vw 0.5rem 2vw; /* Dodano padding boczny */
+      }
+      .brand {
+        font-size: 1.3rem;
+      }
     }
-    @media (max-width: 700px) {
+    @media (max-width: 600px) {
       nav {
         position: absolute;
         top: 60px;
-        right: 2vw;
-        background: var(--nav-bg);
+        right: 2vw; /* Dodano odstęp od prawej krawędzi */
+        background: rgba(43,30,22,0.98);
         flex-direction: column;
         gap: 0;
         width: 180px;
         border-radius: 0 0 10px 10px;
         box-shadow: 0 8px 24px #0005;
         overflow: hidden;
-        z-index: 15;
+        z-index: 10;
         display: none;
       }
       nav.open {
@@ -151,48 +129,28 @@
         display: flex;
       }
     }
-    .container {
-      max-width: 900px;
-      margin: 3rem auto 2rem auto;
-      padding: 2.5rem 2rem;
-      background: var(--container-bg);
-      border-radius: 22px;
-      box-shadow: 0 8px 32px #0005;
-      animation: fadeInPage 0.7s;
-      min-height: 60vh;
-      position: relative;
-      z-index: 2;
-      transition: box-shadow 0.3s;
-      border: 1.5px solid var(--accent);
-    }
-    @keyframes fadeInPage {
-      from { opacity: 0; transform: translateY(30px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
     h1 {
-      color: var(--accent);
+      color: #d4af7f;
       text-align: center;
-      font-size: 2.4rem;
+      font-size: 2.1rem;
       margin-bottom: 1.2rem;
-      letter-spacing: 1.5px;
-      font-weight: 800;
-      text-shadow: 0 4px 16px #0007;
-      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-shadow: 0 2px 8px #0004;
     }
     h2 {
-      color: var(--accent-light);
+      color: #f5e2c0;
       margin-top: 2.2rem;
       margin-bottom: 1rem;
-      font-size: 1.18rem;
-      font-weight: 700;
-      border-left: 4px solid var(--accent);
-      border-right: 4px solid var(--accent);
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-left: 4px solid #d4af7f;
+      border-right: 4px solid #d4af7f;
       padding-left: 0.7rem;
-      background: rgba(169,127,245,0.08);
-      border-radius: 8px;
-      box-shadow: 0 2px 12px #0002;
+      background: rgba(212,175,127,0.05);
+      border-radius: 6px;
+      box-shadow: 0 2px 8px #0001;
       text-align: center;
-      letter-spacing: 0.5px;
     }
     ol, ul {
       margin-left: 1.2rem;
@@ -207,87 +165,64 @@
     }
     ol > li, ul > li {
       margin-bottom: 0.5rem;
-      background: rgba(255,255,255,0.02);
-      border-radius: 7px;
-      padding: 0.7rem 1.1rem;
+      background: rgba(255,255,255,0.03);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
       transition: background 0.2s;
-      font-size: 1.04rem;
-      border-left: 3px solid var(--accent);
+      font-size: 1.01rem;
     }
     ol > li:hover, ul > li:hover {
-      background: rgba(169,127,245,0.10);
+      background: rgba(212,175,127,0.10);
     }
     strong {
-      color: var(--accent);
-      font-weight: 700;
+      color: #d4af7f;
     }
     footer {
       text-align: center;
       margin-top: 2rem;
       padding: 1.1rem;
-      background: var(--footer-bg);
-      border-radius: 12px;
-      font-size: 0.98rem;
-      color: #e2d0f5;
-      letter-spacing: 0.7px;
-      box-shadow: 0 2px 12px #0003;
+      background: rgba(255,255,255,0.07);
+      border-radius: 10px;
+      font-size: 0.93rem;
+      color: #e0d6c7;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px #0002;
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
+    }
+    /* Minimalistyczne podkreślenie aktywnej sekcji */
+    section h2:target {
+      background: #d4af7f;
+      color: #2b1e16;
+      transition: background 0.3s, color 0.3s;
+    }
+    #particles-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.18;
+    }
+    body, .container, header, footer {
       position: relative;
-      z-index: 2;
-      border: 1px solid var(--accent);
-    }
-    /* Fade transition for page content */
-    .fade-out {
-      animation: fadeOutPage 0.5s forwards;
-    }
-    @keyframes fadeOutPage {
-      to { opacity: 0; transform: translateY(30px);}
+      z-index: 1;
     }
   </style>
   <script>
-    // SPA-like fade transition for navigation
     document.addEventListener('DOMContentLoaded', function() {
-      // Navbar mobile
       const menuToggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('header nav');
       menuToggle && menuToggle.addEventListener('click', function() {
         nav.classList.toggle('open');
       });
+      // Zamknij menu po kliknięciu linku (na mobile)
       nav && nav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           nav.classList.remove('open');
         });
       });
-
-      // Highlight current page in navbar
-      const navLinks = document.querySelectorAll('nav a');
-      navLinks.forEach(link => {
-        if (window.location.pathname.endsWith(link.getAttribute('href'))) {
-          link.classList.add('active');
-          link.setAttribute('aria-current', 'page');
-        }
-      });
-
-      // SPA-like fade transition between pages
-      navLinks.forEach(link => {
-        // Only for local links
-        if (link.hostname === window.location.hostname && !link.hasAttribute('target')) {
-          link.addEventListener('click', function(e) {
-            if (link.href !== window.location.href) {
-              e.preventDefault();
-              const container = document.querySelector('.container');
-              container.classList.add('fade-out');
-              setTimeout(() => {
-                window.location = link.href;
-              }, 400);
-            }
-          });
-        }
-      });
-
-      // Particle animation (unchanged)
+      // Particle animation
       const canvas = document.createElement('canvas');
       canvas.id = 'particles-bg';
       document.body.prepend(canvas);
@@ -299,6 +234,8 @@
       }
       resize();
       window.addEventListener('resize', resize);
+      // Particle config
+      const PARTICLE_COUNT = Math.floor((w * h) / 3500);
       const SHAPES = ['circle', 'triangle', 'cross', 'square'];
       function randomColor() {
         const palette = ['#d4af7f', '#f5e2c0', '#fff', '#bfa77a'];
@@ -333,29 +270,13 @@
           ctx.lineWidth = 1.2;
           switch(this.shape) {
             case 'circle':
-              ctx.beginPath();
-              ctx.arc(0, 0, this.size/2, 0, Math.PI*2);
-              ctx.stroke();
-              break;
+              ctx.beginPath(); ctx.arc(0,0,this.size/2,0,2*Math.PI); ctx.stroke(); break;
             case 'triangle':
-              ctx.beginPath();
-              ctx.moveTo(0, -this.size/2);
-              ctx.lineTo(this.size/2, this.size/2);
-              ctx.lineTo(-this.size/2, this.size/2);
-              ctx.closePath();
-              ctx.stroke();
-              break;
+              ctx.beginPath(); ctx.moveTo(0,-this.size/2); ctx.lineTo(this.size/2,this.size/2); ctx.lineTo(-this.size/2,this.size/2); ctx.closePath(); ctx.stroke(); break;
             case 'cross':
-              ctx.beginPath();
-              ctx.moveTo(-this.size/2, 0);
-              ctx.lineTo(this.size/2, 0);
-              ctx.moveTo(0, -this.size/2);
-              ctx.lineTo(0, this.size/2);
-              ctx.stroke();
-              break;
+              ctx.beginPath(); ctx.moveTo(-this.size/2,0); ctx.lineTo(this.size/2,0); ctx.moveTo(0,-this.size/2); ctx.lineTo(0,this.size/2); ctx.stroke(); break;
             case 'square':
-              ctx.strokeRect(-this.size/2, -this.size/2, this.size, this.size);
-              break;
+              ctx.beginPath(); ctx.rect(-this.size/2,-this.size/2,this.size,this.size); ctx.stroke(); break;
           }
           ctx.restore();
         }
@@ -394,61 +315,107 @@
 </head>
 <body>
   <header>
-    <div class="nav-inner">
-      <div class="brand">Nozer</div>
-      <div class="menu-toggle" aria-label="Otwórz menu" tabindex="0">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <nav>
-  <a href="index.html">Strona główna</a>
-  <a href="https://links.nozer.site/" target="_blank">Linki</a>
-  <a href="https://dsc.gg/nozercode" target="_blank">Kontakt (discord)</a>
-      </nav>
+    <div class="brand">Nozercode</div>
+    <div class="menu-toggle" aria-label="Otwórz menu" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+    <nav>
+      <a href="index.html">Strona główna</a>
+      <a href="nozercode_terms_of_service.pdf" download>English Version</a>
+      <a href="#">Kontakt</a>
+    </nav>
   </header>
   <div class="container">
-    <h1>Informacje o stronie Nozer</h1>
+    <h1>Regulamin Usług Nozercode</h1>
     <section>
-      <h2>Postanowienia ogólne</h2>
+      <h2>Postanowienia Ogólne</h2>
       <ol>
-        <li>Strona Nozer to projekt osobisty, stanowiący wizytówkę autora i jego portfolio. Nie jest to oferta handlowa ani usługa komercyjna.</li>
-        <li>Treści zamieszczone na stronie mają charakter informacyjny i prezentacyjny — mogą zawierać przykłady projektów oraz materiały multimedialne stworzone przez autora.</li>
-        <li>Kontakt i ewentualna współpraca z autorem są ustalane oddzielnie; ta strona sama w sobie nie tworzy zobowiązań handlowych.</li>
+        <li>Nozercode to działalność niezarejestrowana - prowadzona z Polski, oferująca usługi webowe, graficzne i powiązane. Usługi są zależne od aktualnie panującej oferty.</li>
+        <li>Każdy klient zawierający umowę z Nozercode akceptuje niniejszy regulamin w całości. W skład umowy wchodzi akceptacja między innymi regulaminu ogólnego, regulaminu danego typu usługi, regulaminu płatności oraz regulaminu zwrotu.
+        </li>
+        <li>W skład regulaminu wchodzi znajomość następujących pojęć ujętych w regulaminie:
+              <ul>
+              <li><strong>Klient - </strong>oznacza osobę bądź podmiot zlecający wykonanie usługi.</li>
+              <li><strong>Usługodawca - </strong>oznacza członka Nozercode, czyli podmiot realizujący usługę.</li>
+              <li><strong>Oferta - </strong>przedstawiona propozycja wykonania usługi wraz z jej zakresem i wyceną.</li>
+              <li><strong>Nozercode - </strong>działalność nierejestrowana, oferująca usługi, zarządzająca regulaminem umową i otrzymującą tranzakcje.</li>
+              <li><strong>Nozer - </strong>właściciel Nozercode, główny Usługodawca.</li>
+              <li><strong>Regulamin - </strong>niniejszy dokument określający zasady współpracy między Klientem a Usługodawcą.</li>
+              <li><strong>Umowa - </strong>akceptacja regulaminu, oferty i zakresu usługi przez obie strony.</li>
+              </ul>
+          </li>
       </ol>
 
-      <h2>Zawartość strony</h2>
+      <h2>Zakres Usług</h2>
       <ol>
-        <li>Materiały dostępne na stronie można przeglądać i udostępniać z podaniem źródła. Nie należy ich wykorzystywać bez zgody autora w celach komercyjnych.</li>
-        <li>Autor dokłada starań, aby informacje były aktualne i poprawne, jednak nie gwarantuje ich kompletności ani bezbłędności.</li>
+        <li>Nozercode oferuje projektowanie stron internetowych, projektowanie i tworzenie grafik, montaż video, pisanie dokumentów, tworzenie treści kreatywnych, zarządzanie serwerami discord oraz inne usługi ustalone indywidualnie i zależne od oferty.</li>
+        <li>Zakres tak jak terminy realizacji ustalane są z klientem przed rozpoczęciem pracy jeśli takowe są wymagane przez klienta.</li>
       </ol>
 
-      <h2>Prawa autorskie</h2>
+      <h2>Płatności</h2>
       <ol>
-        <li>Wszystkie oryginalne treści, grafiki i projekty stworzone przez Nozer na tej stronie są chronione prawem autorskim.</li>
-        <li>Korzystanie z zawartości strony w celach komercyjnych wymaga uzyskania pisemnej zgody autora.</li>
+        <li>Ceny usług ustalane są indywidualnie w zależności od skali projektu, kosztów pracy i innych czynników.</li>
+        <li>Akceptowane formy płatności to: BLIK, PayPal, Paysafecard oraz CS2 Skins.</li>
+        <li>Dla niektórych form płatności mogą obowiązywać prowizje wynikające z opłat transakcyjnych.</li>
+        <li>Klient ponosi ewentualne wyżej wymienione koszta prowizji wynikające z płatności.</li>
+        <li>Własność intelektualna przechodzi na klienta po uregulowaniu pełnej kwoty i pomyślnej transakcji.</li>
       </ol>
 
-      <h2>Kontakt</h2>
+      <h2>Prawa Autorskie</h2>
       <ol>
-        <li>Jeśli chcesz się skontaktować z autorem w sprawie współpracy lub pytań, skorzystaj z dostępnych linków kontaktowych (Discord / social links) w nagłówku i stopce strony.</li>
-        <li>Autor zastrzega sobie prawo do odpowiadania w dogodnym dla siebie czasie.</li>
+        <li>Nozercode zachowuje prawo do umieszczania wykonanych projektów w portfolio lub na platformach takich jak Behance, z zachowaniem poufności danych klienta.</li>
+        <li>Nozercode zachowuje prawa autorskie pracy do momentu przekazania ich do klienta oraz pomyślnego zakończenia umowy.</li>
       </ol>
 
-      <h2>Uwagi prawne i oświadczenia</h2>
+      <h2>Obowiązki Klienta</h2>
       <ol>
-        <li>Strona stanowi domenę osobistą autora i nie zastępuje formalnych umów ani ofert handlowych.</li>
-        <li>Wszelkie porozumienia dotyczące współpracy lub wykorzystania materiałów powinny być uzgodnione bezpośrednio z autorem na odrębnych warunkach.</li>
+        <li>Klient zobowiązuje się do dostarczenia materiałów niezbędnych do realizacji usługi oraz do współpracy w trakcie jej trwania.</li>
+        <li>Klient zobowiązuje się do uregulowania płatności za zleconą usługę.</li>
+        <li>Klient zobowiązuje się do okazania należytej kultury podczas całego okresu współpracy.</li>
+        <li>Klient zobowiązuje się do akceptacji regulaminu i jego przestrzegania.</li>
+      </ol>
+
+      <h2>Odmowa Realizacji</h2>
+      <ol>
+        <li>Nozercode zastrzega sobie prawo odmowy realizacji zlecenia w przypadku, gdy:
+          <ul>
+            <li>Projekt zawiera treści nielegalne lub niezgodne z polskim/unijnym bądź międzynarodowym prawem.</li>
+            <li>Projekt promuje przemoc, nienawiść lub inne treści zakazane.</li>
+            <li>Projekt jest plagiatem lub może naruszać prawa innych podmiotów.</li>
+            <li>Umowa między klientem a usługodawcą nie przebiega w sposób opisany w niej bądź łamie regulamin Nozercode.</li>
+          </ul>
+        </li>
+        <li>W przypadku odmowy z innych przyczyn klient zostanie o tym poinformowany, a wpłacone środki zostaną zwrócone jeśli winę ponosi Usługodawca.</li>
+      </ol>
+
+      <h2>Reklamacje</h2>
+      <ol>
+        <li>Reklamacje przyjmujemy do 14 dni od zakończenia umowy.</li>
+        <li>Reklamacją objęte są następujące usługi: Grafika, Montaż, Serwer Discord</li>
+        <li>Reklamacje rozpatrywane są indywidualnie. Odmowa reklamacji może nastąpić jedynie w przypadku, gdy projekt nie został wykonany zgodnie z zamówieniem, a płatność została uregulowana.</li>
+        <li>Po zakończonym odbiorze finalnej pracy graficznej reklamacja nie jest możliwa.</li>
+        <li>Reklamację należy rozumieć jako zwrot pieniędzy.</li>
+        <li>Reklamacja nie jest możliwa w przypadku poprawnie wykonanej usługi przez usługodawcę, która została zrobiona zgodnie z życzeniem klienta.</li>
+        <li>Decyzja o tym czy reklamacja zostanie zaakceptowana leży u woli usługodawcy, i należy traktować to jako jego dobrą wolę.</li>
+      </ol>
+
+      <h2>Umowy</h2>
+      <ol>
+        <li>Umowa może zostać rozwiązana za porozumieniem stron.</li>
+        <li>Nozercode może rozwiązać umowę w przypadku naruszenia regulaminu przez klienta.</li>
+        <li>Umowa obowiązuje od momentu: rozpoczęcia pracy nad usługą, zapłaty za usługę, momentu jej ustnego rozpoczęcia przez obie strony.</li>
+        <li>Umowa obowiązuje do momentu: przekazania praw autorskich od usługodawcy do beneficjenta, zerwania umowy, rozwiązania umowy.</li>
       </ol>
 
       <h2>Postanowienia Końcowe</h2>
       <ol>
         <li>Regulamin obowiązuje od dnia jego opublikowania na stronie internetowej.</li>
-        <li>W sprawach nieuregulowanych na stronie zastosowanie mają przepisy prawa polskiego oraz zalecenia właściciela strony — Nozer.</li>
+        <li>W sprawach nieuregulowanych w regulaminie zastosowanie mają przepisy prawa polskiego oraz indywidualne zalecenia osoby odpowiedzialnej Nozercode.</li>
       </ol>
     </section>
   </div>
-  <footer>© 2025 Nozer — strona osobista</footer>
+  <footer>Regulamin jest częścią Nozercode oraz podlega własności intelektualnej osoby odpowiedzialnej wymienionego podmiotu.</footer>
 </body>
 </html>

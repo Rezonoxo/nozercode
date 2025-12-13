@@ -8,7 +8,7 @@ const translations = {
             brand: "Nozer",
             projects: "Projects",
             portfolio: "Portfolio",
-            links: "Links",
+            links: "FakeCrime Bio",
             discord: "Discord",
             services: "About",
             termsOfService: "Terms of Service"
@@ -20,7 +20,7 @@ const translations = {
                 webDeveloper: "I build websites",
                 graphicDesigner: "I design graphics",
                 contentCreator: "I create videos",
-                last: "I share knowledge"
+                last: "I help others"
             }
         },
         // Home greeting
@@ -72,22 +72,22 @@ const translations = {
         services: {
             title: "About",
             items: {
-                webDevelopment: {
-                    title: "About me",
-                    description: "I'm 18 years old, from Poland. I enjoy cycling, traveling, mountains and building projects online. I embrace minimalism, organization and creativity."
-                },
-                graphicDesign: {
-                    title: "My values",
-                    description: "I value honesty, calm surroundings and meaningful connections. I focus on personal growth and productivity; I'm inspired by podcasts, films and people's stories."
-                },
-                contentCreation: {
-                    title: "My achievements",
-                    description: "Winner of a graphic contest and an Erasmus+ participant. I strive for positive change and continuous improvement."
-                },
-                discordServices: {
-                    title: "My plans",
-                    description: "I want to work and live abroad in a job that brings satisfaction and helps others. I am introverted but I embrace challenges and enjoy working with positive people."
-                }
+            webDevelopment: {
+                title: "Who I am",
+                description: "I'm 18 years old boy from Poland. I'm passionate about traveling, mountain climbing, cycling and creating online projects. My name is Wiktor and I come from Stalowa Wola."
+            },
+            graphicDesign: {
+                title: "My values",
+                description: "I value honesty, calm surroundings and meaningful connections. I focus on personal growth and productivity, inspired by podcasts, films and people's stories."
+            },
+            contentCreation: {
+                title: "My achievements",
+                description: "My greatest successes so far: Winner of the main prize in the local DBI 2025 graphic design competition, participant in the Erasmus+ project in Malaga. Reaching the peak of Polish Rysy mountains."
+            },
+            discordServices: {
+                title: "My plans",
+                description: "I want to work and live abroad in a profession that brings me satisfaction and allows me to help others in an fair and stable way."
+            }
             }
         },
         
@@ -160,7 +160,7 @@ const translations = {
             projects: "Projekty",
             portfolio: "Portfolio",
             discord: "Discord",
-            links: "Linki",
+            links: "FakeCrime Bio",
             services: "O mnie",
             termsOfService: "Regulamin"
         },
@@ -171,7 +171,7 @@ const translations = {
                 webDeveloper: "Tworzę strony",
                 graphicDesigner: "Projektuję grafiki",
                 contentCreator: "Nagrywam filmy",
-                last: "Dzielę się wiedzą"
+                last: "Pomagam innym"
             }
         },
         
@@ -202,19 +202,19 @@ const translations = {
                 },
                 centrum4life: {
                     title: "Projekty graficzne",
-                    description: "Tworzę kreatywne i estetyczne projekty graficzne — Na Behance swoje gotowe realizacje."
+                    description: "Tworzę kreatywne i estetyczne projekty graficzne — Na Behance prezentuję swoje gotowe realizacje."
                 },
                 tribol: {
                     title: "Web Development",
-                    description: "Buduję responsywne i funkcjonalne strony. Na GitHubie publikuję projekty łączące design z funkcjonalnością."
+                    description: "Buduję responsywne i funkcjonalne strony. Na GitHubie publikuję projekty swoich stron."
                 },
                 kosierbCasino: {
                     title: "NozerBin",
-                    description: "Anonimowy komunikator na żywo oparty na bazie danych MySql oraz PHP."
+                    description: "Anonimowy komunikator coś jak forum z postami, na bazie danych MySql oraz PHP."
                 },
                 nozerTools: {
                     title: "Projekt NozerTools",
-                    description: "To moje centrum mini-projektów: małych, praktycznych narzędzi i aplikacji online, które rozwiązują konkretne problemy. Stawiam na prostotę, użyteczność i szybkie działanie."
+                    description: "To moje centrum mini-projektów: małych, praktycznych narzędzi i aplikacji online."
                 }
             }
         },
@@ -225,7 +225,7 @@ const translations = {
             items: {
                 webDevelopment: {
                     title: "Kim jestem",
-                    description: "Mam 18 lat i pochodzę z Polski. Pasjonuję się podróżami, wspinaczką górską, jazdą rowerową i realizowaniem projektów online. Nazywam się Wiktor i lubię poznawać wartościowe osoby."
+                    description: "Mam 18 lat i pochodzę z Polski. Pasjonuję się podróżami, wspinaczką górską, jazdą rowerową i realizowaniem projektów online. Nazywam się Wiktor i pochodzę z miejscowości Stalowa Wola."
                 },
                 graphicDesign: {
                     title: "Moje wartości",
@@ -233,11 +233,11 @@ const translations = {
                 },
                 contentCreation: {
                     title: "Moje osiągnięcia",
-                    description: "Zwycięzca konkursu graficznego, uczestnik projektu Erasmus+. Dążę do pozytywnych zmian i ciągle się rozwijam."
+                    description: "Dotychczas największymi sukcesami były: Zwycięzca głównej nagrody konkursu graficznego DBI 2025, uczestnik projektu Erasmus+ do Malagi. Zdobycie szczytu polskich Rysów."
                 },
                 discordServices: {
                     title: "Moje plany",
-                    description: "Chcę pracować i mieszkać za granicą w zawodzie, który daje satysfakcję i pozwala pomagać innym."
+                    description: "Chcę pracować i mieszkać za granicą w zawodzie, który da mi satysfakcję i pozwoli pomagać innym w uczciwy i stabilny sposób."
                 }
             }
         },
