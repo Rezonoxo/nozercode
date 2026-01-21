@@ -1,4 +1,4 @@
-// Performance optimization: Debounce function
+// Debounce helper
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -11,160 +11,105 @@ function debounce(func, wait) {
     };
 }
 
-// Sound effects system
-const clickSound = new Audio('music/click.wav');
-clickSound.volume = 0.3; // Set volume to 30%
-
-function playClickSound() {
-    // Reset audio to beginning and play
-    clickSound.currentTime = 0;
-    clickSound.play().catch(error => {
-        console.log('Click sound not available:', error);
-    });
-}
-
 // Loader screen
 window.addEventListener('load', () => {
     const loader = document.querySelector('.loader');
-    loader.classList.add('hidden');
-    setTimeout(() => {
-        loader.style.display = 'none';
-    }, 500);
+    if (loader) {
+        loader.classList.add('hidden');
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
+    }
 });
 
 // Theme Toggle with localStorage
 const themeCheckbox = document.querySelector('.theme-checkbox');
-
 function updateTheme(isLight) {
     document.documentElement.setAttribute('data-theme', isLight ? 'light' : 'dark');
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
 }
-
-themeCheckbox.addEventListener('change', () => {
-    playClickSound();
-    updateTheme(themeCheckbox.checked);
-});
-
-// Load saved theme
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-    const isLight = savedTheme === 'light';
-    themeCheckbox.checked = isLight;
-    updateTheme(isLight);
+if (themeCheckbox) {
+    themeCheckbox.addEventListener('change', () => {
+        updateTheme(themeCheckbox.checked);
+    });
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        const isLight = savedTheme === 'light';
+        themeCheckbox.checked = isLight;
+        updateTheme(isLight);
+    }
 }
 
-// Initialize GSAP
-gsap.registerPlugin(ScrollTrigger);
+// Register GSAP if available
+if (window.gsap) {
+    gsap.registerPlugin?.(window.ScrollTrigger);
+}
 
-// Typing effect for specializations with performance optimization
+// Simple typing/rotate effect for specializations
 const specializations = document.querySelectorAll('.specialization');
 let currentIndex = 0;
-
 function rotateSpecializations() {
+    if (!specializations.length) return;
     specializations.forEach((spec, index) => {
         if (index === currentIndex) {
-            gsap.to(spec, {
-                opacity: 1,
-                y: 0,
-                duration: 0.5,
-                ease: 'power2.out'
-            });
+            gsap.to(spec, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' });
         } else {
-            gsap.to(spec, {
-                opacity: 0,
-                y: 20,
-                duration: 0.5,
-                ease: 'power2.out'
-            });
+            gsap.to(spec, { opacity: 0, y: 20, duration: 0.45, ease: 'power2.out' });
         }
     });
-    
     currentIndex = (currentIndex + 1) % specializations.length;
 }
-
-// Initial state
 rotateSpecializations();
 setInterval(rotateSpecializations, 3000);
 
-// Enhanced GSAP Animations
-gsap.from('.main-title', {
-    duration: 1,
-    y: 50,
-    opacity: 0,
-    ease: 'power3.out'
-});
+// Smooth rotating name in header: "Hej, jestem <Name>"
+(function(){
+    const nameEl = document.querySelector('.name-rotator');
+    if(!nameEl) return;
 
-gsap.from('.specialization', {
-    duration: 0.8,
-    y: 30,
-    opacity: 0,
-    stagger: 0.2,
-    ease: 'power3.out',
-    delay: 0.5
-});
+    const names = ['Nozer','Wiktor','Heaven','Rezonoxo'];
+    let nIdx = names.indexOf(nameEl.textContent.trim());
+    if(nIdx < 0) nIdx = 0;
 
-// Enhanced scroll animations for sections
-const sections = document.querySelectorAll('section');
-sections.forEach(section => {
-    gsap.from(section, {
-        scrollTrigger: {
-            trigger: section,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-        },
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
-    });
-});
-
-// Enhanced project card animations with optimized parallax
-const projectCards = document.querySelectorAll('.project-card');
-projectCards.forEach(card => {
-    const image = card.querySelector('.project-image img');
-    if (image) {
-        image.style.transform = 'none';
-        image.style.transition = 'none';
+    function rotateName(){
+        nameEl.classList.add('out');
+        setTimeout(()=>{
+            nIdx = (nIdx + 1) % names.length;
+            nameEl.textContent = names[nIdx];
+            nameEl.classList.remove('out');
+        }, 420);
     }
-});
 
-// Enhanced service card animations
-const serviceCards = document.querySelectorAll('.service-card');
-serviceCards.forEach((card, index) => {
-    gsap.from(card, {
-        scrollTrigger: {
-            trigger: card,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        delay: index * 0.1,
-        ease: 'power3.out'
+    // start after a short delay to allow page paint
+    setTimeout(()=> setInterval(rotateName, 3000), 800);
+})();
+
+// Simple GSAP entrance animations (safe if GSAP not present)
+if (window.gsap) {
+    gsap.from('.main-title', { duration: 0.9, y: 40, opacity: 0, ease: 'power3.out' });
+    gsap.from('.specialization', { duration: 0.7, y: 20, opacity: 0, stagger: 0.15, ease: 'power3.out', delay: 0.4 });
+}
+
+// Menu toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
 
-    card.addEventListener('mouseenter', () => {
-        gsap.to(card, {
-            y: -10,
-            scale: 1.02,
-            duration: 0.3,
-            ease: 'power2.out'
-        });
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        gsap.to(card, {
-            y: 0,
-            scale: 1,
-            duration: 0.3,
-            ease: 'power2.out'
-        });
-    });
-});
+    // Close menu when clicking outside
+    document.addEventListener('click', debounce((e) => {
+        if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
+    }, 120));
+}
 
-// Smooth scroll for navigation links with performance optimization
+// Smooth scroll for in-page anchors (if any)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -173,291 +118,134 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             const headerOffset = 80;
             const elementPosition = target.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-
-            // Close mobile menu if open
-            menuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            if (menuToggle && navLinks) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
         }
     });
 });
 
-// Mobile Menu with performance optimization
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-menuToggle.addEventListener('click', () => {
-    playClickSound();
-    menuToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
-});
-
-// Close menu when clicking outside with performance optimization
-document.addEventListener('click', debounce((e) => {
-    if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-    }
-}, 100));
-
-// Close menu when clicking a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        playClickSound();
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-    });
-});
-
-// Back to Top Button with performance optimization
+// Back to Top Button
 const backToTopButton = document.querySelector('.back-to-top');
-
 function updateBackToTopButton() {
+    if (!backToTopButton) return;
     if (window.pageYOffset > 300) {
         backToTopButton.classList.add('visible');
     } else {
         backToTopButton.classList.remove('visible');
     }
 }
-
-// Initial check
 updateBackToTopButton();
+window.addEventListener('scroll', debounce(() => {
+    updateBackToTopButton();
+    // Scroll progress bar
+    const bar = document.getElementById('scrollProgressBar');
+    if (bar) {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        bar.style.width = scrolled + '%';
+    }
+}, 60));
 
-// Update on scroll with debounce
-window.addEventListener('scroll', debounce(updateBackToTopButton, 100));
-
-backToTopButton.addEventListener('click', () => {
-    playClickSound();
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+if (backToTopButton) {
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-});
-
-// Music Player with fade effect and error handling
-const musicToggle = document.querySelector('.music-toggle');
-const audio = new Audio('music/background-music.mp3');
-audio.loop = true;
-let isMusicPlaying = true; // Changed to true by default
-let fadeInterval;
-let hasUserInteracted = false;
-
-// Function to handle audio errors
-function handleAudioError(error) {
-    console.error('Audio error:', error);
-    musicToggle.classList.remove('active');
-    isMusicPlaying = false;
-    saveMusicPreference(false);
 }
 
-// Function to safely set volume
-function setSafeVolume(volume) {
-    audio.volume = Math.max(0, Math.min(1, volume));
-}
+// Add small interaction sounds removed to keep page lightweight and friendly (no automatic audio)
 
-// Function to save music preference
-function saveMusicPreference(playing) {
-    localStorage.setItem('musicPreference', playing ? 'enabled' : 'disabled');
-    localStorage.setItem('musicPlaying', playing);
-}
+// -----------------------------
+// Language switcher / i18n wiring
+// -----------------------------
+// Prefer page <html lang> first, then saved user choice in localStorage, then fallback to 'pl'
+let currentLanguage = document.documentElement.lang || localStorage.getItem('lang') || 'pl';
 
-// Function to load music preference
-function loadMusicPreference() {
-    const preference = localStorage.getItem('musicPreference');
-    const playing = localStorage.getItem('musicPlaying');
-    
-    // If no preference is set, default to enabled
-    if (preference === null) {
-        saveMusicPreference(true);
-        return true;
-    }
-    
-    return preference === 'enabled' && playing === 'true';
-}
-
-function fadeIn() {
-    let volume = 0;
-    setSafeVolume(volume);
-    
-    try {
-        const playPromise = audio.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(handleAudioError);
-        }
-    } catch (error) {
-        handleAudioError(error);
-        return;
-    }
-    
-    clearInterval(fadeInterval);
-    fadeInterval = setInterval(() => {
-        if (volume < 1) {
-            volume += 0.1;
-            setSafeVolume(volume);
-        } else {
-            clearInterval(fadeInterval);
-        }
-    }, 100);
-}
-
-function fadeOut() {
-    let volume = audio.volume;
-    
-    clearInterval(fadeInterval);
-    fadeInterval = setInterval(() => {
-        if (volume > 0) {
-            volume -= 0.1;
-            setSafeVolume(volume);
-        } else {
-            audio.pause();
-            clearInterval(fadeInterval);
-        }
-    }, 100);
-}
-
-// Set initial volume
-setSafeVolume(0);
-
-// Load saved music state and attempt to play
-const savedMusicState = localStorage.getItem('musicPlaying');
-if (savedMusicState === 'true') {
-    isMusicPlaying = true;
-    musicToggle.classList.add('active');
-    
-    // Try to play music after a short delay to allow page interaction
-    setTimeout(() => {
-        if (isMusicPlaying) {
-            fadeIn();
-        }
-    }, 1000);
-}
-
-// Add user interaction handler
-document.addEventListener('click', () => {
-    hasUserInteracted = true;
-    // If music should be playing but isn't, start it
-    if (isMusicPlaying && audio.paused) {
-        fadeIn();
-    }
-}, { once: true });
-
-musicToggle.addEventListener('click', () => {
-    playClickSound();
-    
-    if (!hasUserInteracted) {
-        hasUserInteracted = true;
-    }
-    
-    isMusicPlaying = !isMusicPlaying;
-    
-    if (isMusicPlaying) {
-        fadeIn();
-        musicToggle.classList.add('active');
-    } else {
-        fadeOut();
-        musicToggle.classList.remove('active');
-    }
-    
-    localStorage.setItem('musicPlaying', isMusicPlaying);
-});
-
-// Pause music when page is not visible
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden && isMusicPlaying) {
-        fadeOut();
-    } else if (!document.hidden && isMusicPlaying) {
-        fadeIn();
-    }
-});
-
-// Language management
-let currentLanguage = 'en';
-
-// Function to detect user's language and location
-function detectUserLanguage() {
-    // Check localStorage first (user preference)
-    const savedLanguage = localStorage.getItem('language');
-    if (savedLanguage) {
-        return savedLanguage;
-    }
-    
-    // Check browser language
-    const browserLang = navigator.language || navigator.userLanguage;
-    const langCode = browserLang.split('-')[0].toLowerCase();
-    
-    // Check if user is in Poland (based on timezone or other indicators)
-    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const isInPoland = timezone.includes('Europe/Warsaw') || 
-                      timezone.includes('Europe/Berlin') || 
-                      browserLang.includes('pl');
-    
-    // Return Polish if user is in Poland or has Polish browser language
-    if (isInPoland || langCode === 'pl') {
-        return 'pl';
-    }
-    
-    // Default to English
-    return 'en';
-}
-
-// Function to update all translated elements
-function updateLanguage(lang) {
+function applyTranslations(lang) {
+    // keep a globally visible currentLanguage used by getTranslation fallback
     currentLanguage = lang;
-    document.documentElement.lang = lang;
-    localStorage.setItem('language', lang);
-    
-    // Update all elements with data-translate attribute
+    // set html lang attribute
+    try { document.documentElement.lang = lang; } catch (e) {}
+
+    // Update elements marked with data-translate
     const elements = document.querySelectorAll('[data-translate]');
     elements.forEach(element => {
         const key = element.getAttribute('data-translate');
+        if (!key) return;
         const translation = getTranslation(key, lang);
-        
-        if (element.tagName === 'INPUT' && element.type === 'placeholder') {
-            element.placeholder = translation;
+
+        // If element is an input/textarea use placeholder where appropriate
+        const tag = element.tagName && element.tagName.toLowerCase();
+        // Special handling for head/meta/title/img
+        if (tag === 'meta') {
+            element.setAttribute('content', translation);
+            return;
+        }
+        if (tag === 'title') {
+            document.title = translation;
+            return;
+        }
+        if (tag === 'img') {
+            if (element.hasAttribute('alt')) element.alt = translation;
+            return;
+        }
+
+        if (tag === 'input' || tag === 'textarea') {
+            if (element.hasAttribute('placeholder')) element.placeholder = translation;
+            else element.value = translation;
         } else {
-            element.textContent = translation;
+            // If the element has a title attribute, update it (tooltip) but don't overwrite children
+            if (element.hasAttribute('title')) element.title = translation;
+
+            // If element contains a child label we prefer to update that text node to avoid stomping icons/structure
+            const labelSelectors = ['.footer-link-label', '.title', '.subtitle', '.footer-link-label', '.link-label', '.muted', '.section-title', 'h3', 'p'];
+            let updated = false;
+            if (element.children && element.children.length > 0) {
+                for (const sel of labelSelectors) {
+                    const child = element.querySelector(sel);
+                    if (child) {
+                        child.textContent = translation;
+                        updated = true;
+                        break;
+                    }
+                }
+            }
+
+            // fallback: if there are no child elements (plain leaf), replace text
+            if (!updated) {
+                if (!element.children || element.children.length === 0) {
+                    element.textContent = translation;
+                }
+                // otherwise: element has children but we didn't find a suitable target — skip to avoid breaking layout
+            }
         }
     });
-    
-    // Update language switcher
+
+    // Update lang switch button title if present
     const langSwitch = document.getElementById('langSwitch');
     if (langSwitch) {
         langSwitch.setAttribute('data-lang', lang);
         const titleKey = lang === 'pl' ? 'ui.switchToEnglish' : 'ui.switchToPolish';
         langSwitch.title = getTranslation(titleKey, lang);
     }
+
+    // persist choice
+    try { localStorage.setItem('lang', lang); } catch (e) {}
 }
 
-// Initialize language
-document.addEventListener('DOMContentLoaded', () => {
-    const detectedLang = detectUserLanguage();
-    updateLanguage(detectedLang);
-    
-    // Add click sound to social links
-    document.querySelectorAll('.social-link').forEach(link => {
-        link.addEventListener('click', () => {
-            playClickSound();
-        });
+// attach toggle handler
+const langSwitchBtn = document.getElementById('langSwitch');
+if (langSwitchBtn) {
+    // set initial title
+    applyTranslations(currentLanguage);
+    langSwitchBtn.addEventListener('click', () => {
+        const newLang = currentLanguage === 'en' ? 'pl' : 'en';
+        applyTranslations(newLang);
     });
-    
-    // Add click sound to project cards
-    document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('click', () => {
-            playClickSound();
-        });
-    });
-    
-    // Language switcher event listener
-    const langSwitch = document.getElementById('langSwitch');
-    if (langSwitch) {
-        langSwitch.addEventListener('click', () => {
-            playClickSound();
-            const newLang = currentLanguage === 'en' ? 'pl' : 'en';
-            updateLanguage(newLang);
-        });
-    }
-});
+} else {
+    // still apply translations on load even without button
+    applyTranslations(currentLanguage);
+}
